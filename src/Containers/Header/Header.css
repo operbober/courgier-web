@@ -2,3 +2,39 @@
     width: 100px;
     display: inline-block;
 }
+
+#header {
+    background-color: #333333;
+    color: #f1f1f1;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    transition: color ease-in-out 0.3s;
+    color: #f1f1f1;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+a:hover {
+    color: cyan;
+}
+
+.nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    width: calc(100% - 110px);
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+}
+
+.separate {
+    padding: 0 20px;
+}
