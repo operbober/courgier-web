@@ -6,7 +6,6 @@ import {
 import * as React from 'react';
 import './Login.css';
 
-
 export default class Login extends React.Component {
   public state = {
     email: '',

@@ -22,7 +22,7 @@ a {
 }
 
 a:hover {
-    color: cyan;
+    color: #aaaaaa;
 }
 
 .nav {
@@ -36,5 +36,6 @@ a:hover {
 }
 
 .separate {
-    padding: 0 20px;
+    padding: 0 15px;
+    color: #777777;
 }
