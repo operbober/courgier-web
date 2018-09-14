@@ -1,4 +1,4 @@
-import { SIGNUP } from './action';
+import { SIGNIN, SIGNOUT } from './action';
 
 const defaultState = {
   error: null,
@@ -9,28 +9,37 @@ const defaultState = {
 
 export const authReducer = (state = defaultState, action: any) => {
   switch (action.type) {
-    case SIGNUP.REQUEST: {
+    case SIGNIN.REQUEST: {
       return {
         ...state,
         loading: true
       }
     }
 
-    case SIGNUP.SUCCESS: {
+    case SIGNIN.SUCCESS: {
       return {
         ...state,
         error: null,
         loading: false,
         loggedIn: true,
-        user: action.payload.user,
+        user: action.payload.user
       }
     }
 
-    case SIGNUP.ERROR: {
+    case SIGNIN.ERROR: {
       return {
         ...state,
         error: action.payload.error,
+        loading: false
+      }
+    }
+
+    case SIGNOUT: {
+      return {
+        ...state,
         loading: false,
+        loggedIn: false,
+        user: null,
       }
     }
 

@@ -1,13 +1,12 @@
 import {
   Button,
   FormControl,
-  TextField
+  TextField,
 } from '@material-ui/core';
 import * as React from 'react';
-import './Signup.css';
+import './Signin.css';
 
-export default class Signup extends React.Component {
-
+export default class Signin extends React.Component {
   public state = {
     email: '',
     password: ''
@@ -17,7 +16,7 @@ export default class Signup extends React.Component {
     return (
         <div className="container">
           <form className="login-form">
-            <h2>Sign Up</h2>
+            <h2>Sign In</h2>
             <FormControl className="input-holder">
               <TextField
                   id="email"
@@ -45,7 +44,7 @@ export default class Signup extends React.Component {
                   color="primary"
                   type="submit"
               >
-                Sign Up
+                Sign In
               </Button>
             </FormControl>
           </form>

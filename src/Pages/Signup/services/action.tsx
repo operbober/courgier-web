@@ -1,26 +1,26 @@
-export const LOGIN = {
-    REQUEST: 'LOGIN_REQUEST',
-    SUCCESS: 'LOGIN_SUCCESS',
-    ERROR: 'LOGIN_ERROR'
+export const SIGNUP = {
+  ERROR: 'SIGNUP_ERROR',
+  REQUEST: 'SIGNUP_REQUEST',
+  SUCCESS: 'SIGNUP_SUCCESS'
 };
 
-export const login = (email: string, password: string) => {
-    return {
-        type: LOGIN.REQUEST,
-        payload: {email,password},
-    }
+export const signup = (email: string, password: string) => {
+  return {
+    payload: {email, password},
+    type: SIGNUP.REQUEST,
+  };
 };
 
-export const loginSuccess = (user: object) => {
-    return {
-        type: LOGIN.SUCCESS,
-        payload: {user}
-    }
+export const signupSuccess = (user: object) => {
+  return {
+    payload: {user},
+    type: SIGNUP.SUCCESS,
+  };
 };
 
-export const loginError = (error: string) => {
-    return {
-        type: LOGIN.ERROR,
-        payload: {error}
-    }
+export const signupError = (error: string) => {
+  return {
+    payload: {error},
+    type: SIGNUP.ERROR,
+  };
 };

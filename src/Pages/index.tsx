@@ -1,9 +1,9 @@
 import Home from './Home/Home';
-import Login from './Login/Login';
+import Signin from './Signin/Signin';
 import Signup from './Signup/Signup';
 
 export {
-  Login,
+  Signin,
   Home,
   Signup
 }

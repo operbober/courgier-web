@@ -21,7 +21,7 @@ export default class Header extends React.Component {
                     className="btn"
                     activeClassName="active"
                     exact={true}
-                    to="/login"
+                    to="/signin"
                 >
                   Sign In
                 </NavLink>
