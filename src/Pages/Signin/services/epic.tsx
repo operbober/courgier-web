@@ -1,7 +1,6 @@
-import { push } from 'react-router-redux';
 import { combineEpics, ofType } from 'redux-observable';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, ignoreElements, switchMap } from 'rxjs/operators';
 import * as AuthActions from './action';
 
 const signin = (action$: any, state$: any, { api }: any) => action$.pipe(
@@ -21,10 +20,7 @@ const signin = (action$: any, state$: any, { api }: any) => action$.pipe(
 
 const signout = (action$: any, state$: any, { api }: any) => action$.pipe(
     ofType(AuthActions.SIGNOUT),
-    switchMap(() => api.logOut().pipe(
-        map(() => push('/login'))
-        )
-    )
+    switchMap(() => api.logOut().pipe(ignoreElements()))
 );
 
 export default combineEpics(signin, signout);

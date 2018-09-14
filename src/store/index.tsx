@@ -1,34 +1,34 @@
-import { routerMiddleware } from 'react-router-redux';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { signinEpic } from '../Pages/Signin/services';
 import { signupEpic } from '../Pages/Signup/services';
-import firebaseApi from './firebaseApi';
+import FirebaseApi from './firebaseApi';
 import rootReducer from './reducer';
 
 export default function (history: any) {
 
-  firebaseApi.initialize();
-
-  const appEpic = combineEpics(
+  const rootEpic = combineEpics(
       signupEpic,
       signinEpic
   );
 
   const epicMiddleware = createEpicMiddleware({
     dependencies: {
-      api: {...firebaseApi },
+      firebaseApi: new FirebaseApi()
     }
   });
 
+  const enhancer = applyMiddleware(routerMiddleware(history), epicMiddleware);
+
   const store = createStore(
-      rootReducer,
-      composeWithDevTools(),
-      applyMiddleware(epicMiddleware, routerMiddleware(history)),
+      connectRouter(history)(rootReducer),
+      process.env.REACT_APP_DEV
+          ? composeWithDevTools(enhancer)
+          : enhancer
   );
 
-  epicMiddleware.run(appEpic);
-
+  epicMiddleware.run(rootEpic);
   return store;
 }

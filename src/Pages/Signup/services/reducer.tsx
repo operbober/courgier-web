@@ -7,7 +7,7 @@ const defaultState = {
   user: null,
 };
 
-export const authReducer = (state = defaultState, action: any) => {
+export const singupReducer = (state = defaultState, action: any) => {
   switch (action.type) {
     case SIGNUP.REQUEST: {
       return {
