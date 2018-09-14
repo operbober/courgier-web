@@ -23,7 +23,7 @@ export default class Header extends React.Component {
                     exact={true}
                     to="/login"
                 >
-                  Log In
+                  Sign In
                 </NavLink>
               </li>
               <li>
@@ -34,7 +34,7 @@ export default class Header extends React.Component {
                     exact={true}
                     to="/signup"
                 >
-                  Sign In
+                  Sign Up
                 </NavLink>
               </li>
             </ul>
