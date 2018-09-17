@@ -23,4 +23,23 @@ const signout = (action$: any, state$: any, { api }: any) => action$.pipe(
     switchMap(() => api.logOut().pipe(ignoreElements()))
 );
 
-export default combineEpics(signin, signout);
+const signup = (action$: any, state$: any, {api}: any) => action$.pipe(
+    ofType(AuthActions.SIGNUP.REQUEST),
+    switchMap((action: any) => {
+          const {email, password} = action.payload;
+          return api.signUp(email, password).pipe(
+              switchMap((res: any) => of(AuthActions.signupSuccess({
+                email: res.user.email,
+                uid: res.user.uid
+              }))),
+              catchError((error) => {
+                return error.code !== 'auth/email-already-in-use'
+                    ? of(AuthActions.signupError(error.message))
+                    : of(AuthActions.signup(email, password))
+              })
+          )
+        }
+    )
+);
+
+export default combineEpics(signin, signout, signup);

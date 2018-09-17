@@ -2,16 +2,14 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
-import { signinEpic } from '../Pages/Signin/services';
-import { signupEpic } from '../Pages/Signup/services';
+import { authEpic } from '../Pages/Auth/services';
 import FirebaseApi from './firebaseApi';
 import rootReducer from './reducer';
 
 export default function (history: any) {
 
   const rootEpic = combineEpics(
-      signupEpic,
-      signinEpic
+      authEpic,
   );
 
   const epicMiddleware = createEpicMiddleware({

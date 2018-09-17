@@ -1,23 +1,39 @@
 import {
   Button,
   FormControl,
-  TextField
+  TextField,
 } from '@material-ui/core';
 import * as React from 'react';
-import './Signup.css';
+import { connect } from 'react-redux';
+import { signin } from './services';
+import './style.css';
 
-export default class Signup extends React.Component {
+export class Signin extends React.Component {
 
   public state = {
     email: '',
     password: ''
   };
 
+  public handleFormFieldChange = (e: any) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    })
+  };
+
+  public handleSubmit = (e: any) => {
+    e.preventDefault();
+
+    console.log(this.props);
+
+    // this.props.signin(this.state.email, this.state.password);
+  };
+
   public render() {
     return (
         <div className="container">
           <form className="login-form">
-            <h2>Sign Up</h2>
+            <h2>Sign In</h2>
             <FormControl className="input-holder">
               <TextField
                   id="email"
@@ -26,6 +42,7 @@ export default class Signup extends React.Component {
                   label="E-mail"
                   placeholder="pat@buynlarge.com"
                   margin="normal"
+                  onChange={this.handleFormFieldChange}
               />
             </FormControl>
             <FormControl className="input-holder">
@@ -36,6 +53,7 @@ export default class Signup extends React.Component {
                   label="Password"
                   placeholder="password"
                   margin="normal"
+                  onChange={this.handleFormFieldChange}
               />
             </FormControl>
             <FormControl>
@@ -44,8 +62,9 @@ export default class Signup extends React.Component {
                   variant="outlined"
                   color="primary"
                   type="submit"
+                  onClick={this.handleSubmit}
               >
-                Sign Up
+                Sign In
               </Button>
             </FormControl>
           </form>
@@ -53,3 +72,12 @@ export default class Signup extends React.Component {
     )
   }
 }
+
+const mapStateToProps = ({}) => ({});
+
+export default connect(
+    mapStateToProps,
+    {
+      signin
+    }
+)(Signin);
