@@ -1,13 +1,11 @@
-import {
-  Signin,
-  Signup,
-} from './Auth';
+import Signin from './Auth/SignIn';
+import SignUp from './Auth/SignUp';
 import Home from './Home/Home';
 import NotFound from './NotFound/NotFound';
 
 export {
-  Signin,
-  Home,
-  Signup,
-  NotFound
+    Signin,
+    Home,
+    SignUp,
+    NotFound
 }

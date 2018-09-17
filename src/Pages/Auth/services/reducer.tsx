@@ -1,8 +1,4 @@
-import {
-  SIGNIN,
-  SIGNOUT,
-  SIGNUP,
-} from './action';
+import { SIGNIN, SIGNOUT, SIGNUP } from './action';
 
 const defaultState = {
   error: null,
@@ -16,8 +12,8 @@ export const authReducer = (state = defaultState, action: any) => {
     case SIGNIN.REQUEST: {
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     }
 
     case SIGNIN.SUCCESS: {
@@ -26,16 +22,16 @@ export const authReducer = (state = defaultState, action: any) => {
         error: null,
         loading: false,
         loggedIn: true,
-        user: action.payload.user
-      }
+        user: action.payload.user,
+      };
     }
 
     case SIGNIN.ERROR: {
       return {
         ...state,
         error: action.payload.error,
-        loading: false
-      }
+        loading: false,
+      };
     }
 
     case SIGNOUT: {
@@ -44,21 +40,14 @@ export const authReducer = (state = defaultState, action: any) => {
         loading: false,
         loggedIn: false,
         user: null,
-      }
+      };
     }
 
-    default:
-      return state;
-  }
-};
-
-export const singupReducer = (state = defaultState, action: any) => {
-  switch (action.type) {
     case SIGNUP.REQUEST: {
       return {
         ...state,
-        loading: true
-      }
+        loading: true,
+      };
     }
 
     case SIGNUP.SUCCESS: {
@@ -68,7 +57,7 @@ export const singupReducer = (state = defaultState, action: any) => {
         loading: false,
         loggedIn: true,
         user: action.payload.user,
-      }
+      };
     }
 
     case SIGNUP.ERROR: {
@@ -76,7 +65,7 @@ export const singupReducer = (state = defaultState, action: any) => {
         ...state,
         error: action.payload.error,
         loading: false,
-      }
+      };
     }
 
     default:
