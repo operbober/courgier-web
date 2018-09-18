@@ -5,10 +5,14 @@
 }
 
 body {
-  background-color: #f1f1f1;
+  background-color: #fff;
 }
 
 img {
   max-width: 100%;
   vertical-align: top;
+}
+
+a {
+  outline: none;
 }

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import './Header.css';
 
-export default class Header extends React.Component {
+export class Header extends React.Component {
   public render() {
     return (
         <header id="header">
@@ -43,3 +43,5 @@ export default class Header extends React.Component {
     )
   }
 }
+
+export default withRouter(props => <Header {...props}/>)

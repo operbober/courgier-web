@@ -1,11 +1,11 @@
 .logo {
-    width: 100px;
+    width: 90px;
     display: inline-block;
 }
 
 #header {
-    background-color: #333333;
-    color: #f1f1f1;
+    color: #d5d5d5;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
 }
 
 #header .container {
@@ -15,14 +15,14 @@
 
 a {
     transition: color ease-in-out 0.3s;
-    color: #f1f1f1;
+    color: #777;
     text-decoration: none;
     text-transform: capitalize;
     font-size: 20px;
 }
 
 a:hover {
-    color: #aaaaaa;
+    color: #aaa;
 }
 
 .nav {
@@ -36,6 +36,6 @@ a:hover {
 }
 
 .separate {
-    padding: 0 15px;
-    color: #777777;
+    padding: 0 7px;
+    color: #a5a5a5;
 }
