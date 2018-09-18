@@ -1,47 +1,30 @@
 import * as React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Control from './Control';
 import './Header.css';
+import Navigation from './Navigation';
 
-export class Header extends React.Component {
+export default class Header extends React.Component {
   public render() {
+
     return (
-        <header id="header">
-          <div className="container">
-            <strong className="logo">
-              <NavLink
-                  exact={true}
-                  to="/"
-              >
-                <img src="./images/logo.png" alt="react-training"/>
-              </NavLink>
-            </strong>
-            <ul className="nav">
-              <li>
-                <NavLink
-                    className="btn"
-                    activeClassName="active"
-                    exact={true}
-                    to="/signin"
-                >
-                  Sign In
-                </NavLink>
-              </li>
-              <li>
-                <span className="separate">or</span>
-                <NavLink
-                    className="btn"
-                    activeClassName="active"
-                    exact={true}
-                    to="/signup"
-                >
-                  Sign Up
-                </NavLink>
-              </li>
-            </ul>
+      <header id="header">
+        <div className="container">
+          <strong className="logo">
+            <NavLink
+              exact={true}
+              to="/"
+            >
+              <img src="./images/logo.png" alt="react-training"/>
+            </NavLink>
+          </strong>
+          <div className="nav-holder">
+            <Navigation/>
+            <Control/>
           </div>
-        </header>
-    )
+        </div>
+      </header>
+    );
   }
 }
 
-export default withRouter(props => <Header {...props}/>)
