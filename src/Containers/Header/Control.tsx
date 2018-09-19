@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { signOut } from 'src/Pages/Auth/services';
 import './Header.css';
 
@@ -11,6 +11,10 @@ class Control extends React.Component {
     signOut: any
   };
 
+  public handleLogOut = () => {
+    this.props.signOut();
+  };
+
   public render() {
 
     return (
@@ -18,37 +22,31 @@ class Control extends React.Component {
         {!this.props.loggedIn
           ? <React.Fragment>
             <li>
-              <NavLink
+              <Link
                 className="btn"
-                activeClassName="active"
-                exact={true}
                 to="/signin"
               >
                 Sign In
-              </NavLink>
+              </Link>
             </li>
             <li>
               <span className="separate"> or </span>
-              <NavLink
+              <Link
                 className="btn"
-                activeClassName="active"
-                exact={true}
                 to="/signup"
               >
                 Sign Up
-              </NavLink>
+              </Link>
             </li>
           </React.Fragment> :
           <li>
-            <NavLink
+            <Link
               className="btn"
-              activeClassName="active"
-              exact={true}
-              onClick={signOut}
               to="/signin"
+              onClick={this.handleLogOut}
             >
               Sign Out
-            </NavLink>
+            </Link>
           </li>
         }
       </ul>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 class Navigation extends React.Component {
@@ -13,26 +13,22 @@ class Navigation extends React.Component {
     return (
       <ul className="nav">
         <li>
-          <NavLink
+          <Link
             className="btn"
-            activeClassName="active"
-            exact={true}
             to="/"
           >
             Home
-          </NavLink>
+          </Link>
         </li>
         {
           this.props.loggedIn &&
           <li>
-              <NavLink
+              <Link
                   className="btn"
-                  activeClassName="active"
-                  exact={true}
                   to="/"
               >
                   logged
-              </NavLink>
+              </Link>
           </li>
         }
       </ul>
