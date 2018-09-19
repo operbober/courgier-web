@@ -3,7 +3,7 @@ import { History } from 'history';
 import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
-import { authEpic } from '../Pages/Auth/services';
+import { authEpic } from './authServices';
 import firebaseApi from './firebaseApi';
 import rootReducer from './reducer';
 

@@ -1,10 +1,10 @@
 import { Button, FormControl, TextField } from '@material-ui/core';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { signIn } from './services';
+import { signUp } from 'src/store/authServices';
 import './style.css';
 
-export class SignIn extends React.Component {
+export class SignUp extends React.Component {
 
   public state = {
     email: '',
@@ -12,27 +12,26 @@ export class SignIn extends React.Component {
   };
 
   public props: {
-    signIn(email: string, password: string): void,
+    signUp(email: string, password: string): void,
   };
 
   public handleFormFieldChange = (e: any) => {
-    console.log(e);
     this.setState({
       [ e.target.name ]: e.target.value,
     });
   };
 
-  public handleSubmit = (e: any) => {
+  public handleSignUp = (e: any) => {
     e.preventDefault();
 
-    this.props.signIn(this.state.email, this.state.password);
+    this.props.signUp(this.state.email, this.state.password);
   };
 
   public render() {
     return (
       <div className="container">
         <form className="login-form">
-          <h2>Sign In</h2>
+          <h2>Sign Up</h2>
           <FormControl className="input-holder">
             <TextField
               id="email"
@@ -61,9 +60,9 @@ export class SignIn extends React.Component {
               variant="outlined"
               color="primary"
               type="submit"
-              onClick={this.handleSubmit}
+              onClick={this.handleSignUp}
             >
-              Sign In
+              Sign Up
             </Button>
           </FormControl>
         </form>
@@ -72,11 +71,9 @@ export class SignIn extends React.Component {
   }
 }
 
-const mapStateToProps = ({}) => ({});
-
 export default connect(
-  mapStateToProps,
+  ({}) => ({}),
   {
-    signIn,
+    signUp,
   },
-)(SignIn);
+)(SignUp);

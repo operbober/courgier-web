@@ -1,8 +1,8 @@
 import { Button, FormControl, TextField } from '@material-ui/core';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { signIn } from './services';
-import './style.css';
+import { signIn } from 'src/store/authServices';
+import '../SignUp/style.css';
 
 export class SignIn extends React.Component {
 
@@ -72,10 +72,8 @@ export class SignIn extends React.Component {
   }
 }
 
-const mapStateToProps = ({}) => ({});
-
 export default connect(
-  mapStateToProps,
+  ({}) => ({}),
   {
     signIn,
   },
