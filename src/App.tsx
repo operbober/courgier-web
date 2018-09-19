@@ -1,20 +1,32 @@
+import { ConnectedRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 import * as React from 'react';
+import { Provider } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import { Header } from './Containers';
+import * as Page from './Pages';
+import { configureStore } from './store';
 
-import logo from './logo.svg';
+const history = createBrowserHistory();
+const store = configureStore(history);
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <React.Fragment>
+            <Header/>
+            <Switch>
+              <Route exact={true} path="/" component={Page.Home}/>
+              <Route path="/signin" component={Page.Signin}/>
+              <Route path="/signup" component={Page.SignUp}/>
+              <Route path="*" component={Page.NotFound}/>
+            </Switch>
+          </React.Fragment>
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
