@@ -40,10 +40,8 @@ class Navigation extends React.Component {
   }
 }
 
-const mapStateToProps = ({auth: {loggedIn}}) => ({
-  loggedIn: loggedIn,
+const mapStateToProps = ({auth}: {auth: { loggedIn: boolean}}) => ({
+  loggedIn: auth.loggedIn,
 });
 
-export default connect(
-  mapStateToProps,
-)(Navigation);
+export default connect(mapStateToProps)(Navigation);
