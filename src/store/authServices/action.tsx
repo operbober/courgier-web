@@ -1,3 +1,5 @@
+import { AnyAction } from 'redux';
+
 export const SIGNIN = {
   ERROR: 'SIGNIN_ERROR',
   REQUEST: 'SIGNIN_REQUEST',
@@ -41,7 +43,7 @@ export const signUp = (email: string, password: string) => {
   };
 };
 
-export const signUpSuccess = (user: object) => {
+export const signUpSuccess = (user: object): AnyAction => {
   return {
     payload: {user},
     type: SIGNUP.SUCCESS,

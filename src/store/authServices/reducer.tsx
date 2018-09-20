@@ -1,13 +1,15 @@
+import { AnyAction } from 'redux';
+import { AuthState } from '../interface/AuthState.js';
 import { SIGNIN, SIGNOUT, SIGNUP } from './action';
 
-const defaultState = {
+const defaultState: AuthState = {
   error: null,
   loading: false,
   loggedIn: false,
   user: null,
 };
 
-export const authReducer = (state = defaultState, action: any) => {
+export const authReducer = (state: AuthState = defaultState, action: AnyAction): AuthState => {
   switch (action.type) {
     case SIGNIN.REQUEST: {
       return {

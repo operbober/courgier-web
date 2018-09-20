@@ -16,7 +16,6 @@ export class SignIn extends React.Component {
   };
 
   public handleFormFieldChange = (e: any) => {
-    console.log(e);
     this.setState({
       [ e.target.name ]: e.target.value,
     });
