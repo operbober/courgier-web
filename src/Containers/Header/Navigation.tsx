@@ -11,14 +11,6 @@ export default class Navigation extends React.Component {
   public render() {
     return (
       <ul className="nav">
-        <li>
-          <Link
-            className="btn"
-            to="/"
-          >
-            Home
-          </Link>
-        </li>
         {
           this.props.loggedIn &&
           <li>
