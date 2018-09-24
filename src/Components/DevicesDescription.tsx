@@ -8,22 +8,30 @@ export default class DeviseDescription extends React.Component {
     description: string,
     isOnline: boolean,
     name: string,
+    imgUrl: string
   };
 
   public render() {
     return (
-      <React.Fragment>
-        <title>{this.props.name}</title>
         <div className="content-holder">
-          <img src="" alt="image description"/>
-          <p>{this.props.description}</p>
-          <div className="constrol-info">
-            <span>{this.props.type}</span>
-            <span className="online">{this.props.date}</span>
-            <span>{this.props.isOnline}</span>
+          <strong className="device-name">{this.props.name}</strong>
+          <div className="device-info">
+            <div className="img-holder">
+              <img src={this.props.imgUrl}
+                   alt="image description"/>
+            </div>
+            <p>{this.props.description}</p>
+            <div className="control-info">
+              <span>type: {this.props.type}</span>
+              <span className="online"> last active: {this.props.date}</span>
+              <span>is online:
+                {this.props.isOnline
+                ? <span className="circle green"/>
+                : <span className="circle red"/>}
+              </span>
+            </div>
           </div>
         </div>
-      </React.Fragment>
     );
   }
 }
