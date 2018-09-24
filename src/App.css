@@ -8,6 +8,16 @@ body {
   background-color: #fff;
 }
 
+main {
+  padding: 100px 0 50px;
+}
+
+@media only screen and (max-width: 768px){
+  main {
+    padding: 40px 0 15px;
+  }
+}
+
 img {
   max-width: 100%;
   vertical-align: top;

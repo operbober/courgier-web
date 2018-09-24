@@ -6,7 +6,7 @@ export default class Control extends React.Component {
 
   public props: {
     loggedIn: boolean,
-    signOut: any
+    signOut: () => void,
   };
 
   public handleLogOut = () => {
