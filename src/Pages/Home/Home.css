@@ -17,7 +17,7 @@ p {
 }
 
 @media only screen and (max-width: 768px){
-    .content-holder {
+    .flex-container > .content-holder {
         width: 100%;
         margin-bottom: 25px;
     }
@@ -29,8 +29,8 @@ p {
 }
 
 .btn-download {
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     margin: 0 20px;
     overflow: hidden;
