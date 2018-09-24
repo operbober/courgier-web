@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { signOut } from 'src/store/authServices';
 import './Header.css';
 
-class Control extends React.Component {
+export default class Control extends React.Component {
 
   public props: {
     loggedIn: boolean,
-    signOut: any
+    signOut: () => void,
   };
 
   public handleLogOut = () => {
@@ -53,14 +51,3 @@ class Control extends React.Component {
     );
   }
 }
-
-const mapStateToProps = ({auth}: { auth: { loggedIn: boolean } }) => ({
-  loggedIn: auth.loggedIn,
-});
-
-export default connect(
-  mapStateToProps,
-  {
-    signOut: {signOut},
-  },
-)(Control);
