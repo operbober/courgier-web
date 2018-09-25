@@ -9,51 +9,63 @@ import './Home.css';
 class Home extends React.Component {
 
   public props: {
+    items: {
+      type: string,
+      date: string,
+      description: string,
+      name: string,
+    },
     loggedIn: boolean,
     signUp(email: string, password: string): void,
   };
 
   public render() {
+    const { items } = this.props;
+
+    console.log(items);
+
     return (
-        <main>
-          {!this.props.loggedIn
-              ? <div className="container flex-container">
-                <div className="content-holder">
-                  <h1>Ололо</h1>
-                  <p>олололололо олололололо олололололо олололололо олололололо олололололо олололололо олололололо
-                    олололололо олололололо </p>
-                  <div className="button-holder">
-                    <a className="btn-download" href="../download/1">1</a>
-                    <a className="btn-download" href="../download/2">2</a>
-                    <a className="btn-download" href="../download/3">3</a>
-                  </div>
-                </div>
-                <div className="content-holder">
-                  <SignUpForm signUp={this.props.signUp}/>
-                </div>
-              </div> :
-              <div className="container">
-                <h1>Devices</h1>
-                <DeviseDescription type={'iphone'} date={'13.09'} description={'olololol'} isOnline={true}
-                                   name={'iphone X'} imgUrl={''}/>
-                <DeviseDescription type={'iphone'} date={'13.09'}
-                                   description={'olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol olololol '}
-                                   isOnline={true}
-                                   name={'iphone XS'} imgUrl={''}/>
-                <DeviseDescription type={'iphone'} date={'13.09'} description={'olololol'} isOnline={false}
-                                   name={'iphone XS Max'} imgUrl={''}/>
+      <main>
+        {!this.props.loggedIn
+          ? <div className="container flex-container">
+            <div className="content-holder">
+              <h1>Ололо</h1>
+              <p>олололололо олололололо олололололо олололололо олололололо олололололо олололололо олололололо
+                олололололо олололололо </p>
+              <div className="button-holder">
+                <a className="btn-download" href="../download/1">1</a>
+                <a className="btn-download" href="../download/2">2</a>
+                <a className="btn-download" href="../download/3">3</a>
               </div>
-          }
-        </main>
+            </div>
+            <div className="content-holder">
+              <SignUpForm signUp={this.props.signUp}/>
+            </div>
+          </div> :
+          <div className="container">
+            <h1>Devices</h1>
+            {Object.keys(items).map(key => (
+              <DeviseDescription  type={items[key].type} date={items[key].date} description={items[key].description} name={key}
+              />
+            ))}
+            {/*<DeviseDescription type={'apple'}*/}
+                               {/*date={'13.09'}*/}
+                               {/*description={'olololol'}*/}
+                               {/*name={'iphone X'}*/}
+            {/*/>*/}
+          </div>
+        }
+      </main>
     );
   }
 }
 
-const mapStateToProps = ({ auth }: State) => ({
+const mapStateToProps = ({auth, devices}: State) => ({
+  items: devices.items,
   loggedIn: auth.loggedIn,
 });
 
 export default connect(
-    mapStateToProps,
-    { signUp },
+  mapStateToProps,
+  {signUp},
 )(Home);

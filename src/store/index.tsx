@@ -4,6 +4,7 @@ import { applyMiddleware, createStore, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { authEpic } from './authServices';
+import { devicesEpic } from './devicesServices';
 import firebaseApi from './firebaseApi';
 import rootReducer from './reducer';
 
@@ -13,6 +14,7 @@ export const configureStore = (history: History): Store => {
 
   const rootEpic = combineEpics(
     authEpic,
+    devicesEpic,
   );
 
   const epicMiddleware = createEpicMiddleware({

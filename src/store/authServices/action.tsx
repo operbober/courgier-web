@@ -35,7 +35,6 @@ export const signInError = (error: string) => {
   };
 };
 
-
 export const signUp = (email: string, password: string) => {
   return {
     payload: {email, password},
@@ -62,3 +61,4 @@ export const signOut = () => {
     type: SIGNOUT,
   };
 };
+

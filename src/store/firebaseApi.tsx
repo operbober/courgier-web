@@ -1,21 +1,29 @@
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
-import { from } from 'rxjs';
-
-// apiKey: "AIzaSyBba6qtWtSzNGGzRiAtbsxJ7VGGNOryLGI"
+import { from, throwError } from 'rxjs';
 
 const config = {
-  apiKey: 'AIzaSyBba6qtWtSzNGGzRiAtbsxJ7VGGNOryLGI',
-  authDomain: 'courgier-web.firebaseapp.com',
-  databaseURL: 'https://courgier-web.firebaseio.com',
-  messagingSenderId: '21989264259',
-  projectId: 'courgier-web',
-  storageBucket: 'courgier-web.appspot.com',
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: 'courgier.firebaseapp.com',
+  databaseURL: 'https://courgier.firebaseio.com',
+  messagingSenderId: '266937184578',
+  projectId: 'courgier'
 };
 
 const firebaseApi = {
   initialize: () => firebase.initializeApp(config),
+
+  getItems: () => {
+    const {currentUser} = firebase.auth();
+    if (currentUser) {
+      const uid = currentUser.uid;
+      const path = '/' + uid;
+      return from(firebase.database().ref(path).once('value'));
+    } else {
+      return throwError('current User is null');
+    }
+  },
 
   signUp: (email: string, password: string) => from(firebase.auth().createUserWithEmailAndPassword(email, password)),
 

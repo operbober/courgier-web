@@ -2,6 +2,7 @@ import { push } from 'connected-react-router';
 import { combineEpics, ofType } from 'redux-observable';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
+import * as devicesAction from '../devicesServices/action';
 import * as AuthActions from './action';
 
 const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
@@ -11,9 +12,9 @@ const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
 
     return api.signIn(email, password).pipe(
       switchMap((res: any) => of(AuthActions.signInSuccess({
-        email: res.user.email,
-        uid: res.user.uid,
-      }), push('./'))),
+          email: res.user.email,
+          uid: res.user.uid,
+        }), devicesAction.getItems(), push('./'))),
       catchError((error) => of(AuthActions.signInError(error.message))),
     );
   }),
@@ -22,7 +23,7 @@ const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
 const signOut = (action$: any, state$: any, {api}: any) => action$.pipe(
   ofType(AuthActions.SIGNOUT),
   switchMap(() => api.signOut().pipe(
-      map(() => push('./signin'))
+    map(() => push('./signin')),
   )),
 );
 
