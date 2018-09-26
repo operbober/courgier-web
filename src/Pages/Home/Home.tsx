@@ -15,14 +15,13 @@ class Home extends React.Component {
       description: string,
       name: string,
     },
+    loading: boolean
     loggedIn: boolean,
     signUp(email: string, password: string): void,
   };
 
   public render() {
-    const { items } = this.props;
-
-    console.log(items);
+    const {items} = this.props;
 
     return (
       <main>
@@ -41,18 +40,14 @@ class Home extends React.Component {
             <div className="content-holder">
               <SignUpForm signUp={this.props.signUp}/>
             </div>
-          </div> :
-          <div className="container">
+          </div>
+          : <div className="container">
             <h1>Devices</h1>
             {Object.keys(items).map(key => (
-              <DeviseDescription  type={items[key].type} date={items[key].date} description={items[key].description} name={key}
+              <DeviseDescription type={items[ key ].type} date={items[ key ].date}
+                                 description={items[ key ].description} name={key}
               />
             ))}
-            {/*<DeviseDescription type={'apple'}*/}
-                               {/*date={'13.09'}*/}
-                               {/*description={'olololol'}*/}
-                               {/*name={'iphone X'}*/}
-            {/*/>*/}
           </div>
         }
       </main>
@@ -62,6 +57,7 @@ class Home extends React.Component {
 
 const mapStateToProps = ({auth, devices}: State) => ({
   items: devices.items,
+  loading: devices.loading,
   loggedIn: auth.loggedIn,
 });
 
