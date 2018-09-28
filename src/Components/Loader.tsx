@@ -4,8 +4,8 @@ import * as React from 'react';
 export default class CircularIndeterminate extends React.Component {
   public render() {
     return (
-      <div>
-        <CircularProgress className="progress"/>
+      <div className="progress">
+        <CircularProgress className="progress-circle"/>
       </div>
     );
   }

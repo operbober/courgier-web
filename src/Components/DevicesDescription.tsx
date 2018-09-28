@@ -23,9 +23,8 @@ export default class DeviseDescription extends React.Component {
       windows: <i className="icon-windows"/>,
     };
 
-    // @ts-ignore
     return (
-      <div className="content-holder">
+      <div className="content-holder device">
         <Link to={`device/${this.props.name}`}>
           <strong className="device-name">{this.props.name}</strong>
         </Link>
