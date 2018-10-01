@@ -1,23 +1,29 @@
 import { ConnectedRouter } from 'connected-react-router';
+import 'firebase/auth';
 import { createBrowserHistory } from 'history';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react'
+// import { getItems } from 'src/store/devicesServices';
 import './App.css';
 import { Header } from './Containers';
 import * as Page from './Pages';
 import { configureStore } from './store';
+
 
 const history = createBrowserHistory();
 const store = configureStore(history);
 const persistor = persistStore(store);
 
 class App extends React.Component {
-  public render() {
 
-    console.log(store.getState());
+  // public componentDidMount() {
+  //
+  // }
+
+  public render() {
 
     return (
       <Provider store={store} >

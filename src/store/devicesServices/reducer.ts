@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { DevicesState } from 'src/store/interface/DevicesState.js';
+import { DevicesState } from 'src/store/interface/DevicesState';
 import { GET_ITEMS } from './action';
 
 const defaultState: DevicesState = {
@@ -29,7 +29,8 @@ export const devicesReducer = (state: DevicesState = defaultState, action: AnyAc
     case GET_ITEMS.FAILURE: {
       return {
         ...state,
-        error: action.error,
+        error: action.payload,
+        loading: false,
       };
     }
 

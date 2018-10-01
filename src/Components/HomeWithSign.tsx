@@ -11,11 +11,12 @@ export default class HomeWithSign extends React.Component {
       description: string,
       name: string,
     },
-    loading: boolean
+    loading: boolean,
+    error: string,
   };
 
   public render() {
-    const {items, loading} = this.props;
+    const {items, loading, error} = this.props;
 
     return (
       <div className="container" >
@@ -27,6 +28,7 @@ export default class HomeWithSign extends React.Component {
                                  description={items[key].description} name={key}
               />
             ))}
+            {error && <p>{error}</p>}
           </React.Fragment >
           : <CircularIndeterminate/>
         }

@@ -8,11 +8,17 @@ const config = {
   authDomain: 'courgier.firebaseapp.com',
   databaseURL: 'https://courgier.firebaseio.com',
   messagingSenderId: '266937184578',
-  projectId: 'courgier'
+  projectId: 'courgier',
 };
 
 const firebaseApi = {
-  initialize: () => firebase.initializeApp(config),
+  initialize: () => {
+    const app = firebase.initializeApp(config);
+
+    app.auth().onAuthStateChanged((user) => {
+      console.log(user);
+    });
+  },
 
   getItems: () => {
     const {currentUser} = firebase.auth();

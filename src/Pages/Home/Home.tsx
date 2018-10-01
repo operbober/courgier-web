@@ -15,26 +15,28 @@ class Home extends React.Component {
       description: string,
       name: string,
     },
-    loading: boolean
+    loading: boolean,
     loggedIn: boolean,
+    error: string,
     signUp(email: string, password: string): void,
   };
 
   public render() {
-    const {items, loading} = this.props;
+    const {items, loading, error} = this.props;
 
     return (
-      <main>
+      <main >
         {!this.props.loggedIn
-          ? <HomeWithoutSign signUp={this.props.signUp}/>
-          : <HomeWithSign items={items} loading={loading}/>
+          ? <HomeWithoutSign signUp={this.props.signUp} />
+          : <HomeWithSign items={items} loading={loading} error={error}/>
         }
-      </main>
+      </main >
     );
   }
 }
 
 const mapStateToProps = ({auth, devices}: State) => ({
+  error: devices.error,
   items: devices.items,
   loading: devices.loading,
   loggedIn: auth.loggedIn,

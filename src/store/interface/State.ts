@@ -4,6 +4,6 @@ import { DevicesState } from 'src/store/interface/DevicesState';
 
 export interface State {
   auth: AuthState,
-  devices: DevicesState
+  devices: DevicesState,
   router: RouterState
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { signOut } from 'src/store/authServices';
+import { signOut } from 'src/store/authServices/index';
 import { State } from 'src/store/interface/State.js';
 import Control from './Control';
 import './Header.css';

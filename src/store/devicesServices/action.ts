@@ -17,9 +17,9 @@ export const getItemsSuccess = (items: {}) => {
   }
 };
 
-export const getItemsFailure = (error: object) => {
+export const getItemsFailure = (error: string) => {
   return {
-    error,
+    payload: error,
     type: GET_ITEMS.FAILURE
   }
 };

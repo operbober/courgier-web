@@ -1,10 +1,10 @@
 import { AnyAction } from 'redux';
-import { AuthState } from '../interface/AuthState.js';
+import { AuthState } from '../interface/AuthState';
 import { SIGNIN, SIGNOUT, SIGNUP } from './action';
 
 const defaultState: AuthState = {
   error: null,
-  loading: false,
+  loading: true,
   loggedIn: false,
   user: null,
 };

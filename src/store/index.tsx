@@ -5,7 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import { authEpic } from './authServices';
+import { authEpic } from './authServices/index';
 import { devicesEpic } from './devicesServices';
 import firebaseApi from './firebaseApi';
 import rootReducer from './reducer';
@@ -17,6 +17,7 @@ export const configureStore = (history: History): Store => {
   const persistConfig = {
     key: 'root',
     storage,
+    whitelist: ['auth']
   };
 
   const rootEpic = combineEpics(

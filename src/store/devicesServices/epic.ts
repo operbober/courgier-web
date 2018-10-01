@@ -7,7 +7,9 @@ const getItems = (action$: any, state$: any, {api}: any) => action$.pipe(
   ofType(devicesAction.GET_ITEMS.REQUEST),
   switchMap(() => api.getItems().pipe(
     map((res: any) => devicesAction.getItemsSuccess(res.val())),
-    catchError(err => of(devicesAction.getItemsFailure(err.message))),
+    catchError(err => {
+      return of(devicesAction.getItemsFailure(err))
+    }),
   )),
 );
 
