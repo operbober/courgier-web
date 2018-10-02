@@ -46,4 +46,11 @@ const signUp = (action$: any, state$: any, {api}: any) => action$.pipe(
   ),
 );
 
-export default combineEpics(signIn, signOut, signUp);
+const authStateChangeEpic = (action$: any, state$: any, {api}: any) => action$.pipe(
+  ofType(AuthActions.SUBSCRIBE_ON_AUTH_STATE_CHANGE),
+  switchMap(() => api.subscribeOnAuthStateChanged().pipe(
+    map((user: any) => AuthActions.authStateChange(user))
+  ))
+);
+
+export default combineEpics(signIn, signOut, signUp, authStateChangeEpic);

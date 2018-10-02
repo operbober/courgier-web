@@ -1,10 +1,11 @@
 import { AnyAction } from 'redux';
 import { AuthState } from '../interface/AuthState';
-import { SIGNIN, SIGNOUT, SIGNUP } from './action';
+import { AUTH_STATE_CHANGE, SIGNIN, SIGNOUT, SIGNUP } from './action';
 
 const defaultState: AuthState = {
   error: null,
-  loading: true,
+  firebaseInitialized: false,
+  loading: false,
   loggedIn: false,
   user: null,
 };
@@ -67,6 +68,15 @@ export const authReducer = (state: AuthState = defaultState, action: AnyAction):
         ...state,
         error: action.payload.error,
         loading: false,
+      };
+    }
+
+    case AUTH_STATE_CHANGE: {
+      return {
+        ...state,
+        firebaseInitialized: true,
+        loggedIn: !!action.user,
+        user: action.user,
       };
     }
 

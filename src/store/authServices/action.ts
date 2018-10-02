@@ -14,6 +14,10 @@ export const SIGNUP = {
 
 export const SIGNOUT = 'SIGNOUT';
 
+export const SUBSCRIBE_ON_AUTH_STATE_CHANGE = 'SUBSCRIBE_ON_AUTH_STATE_CHANGE';
+
+export const AUTH_STATE_CHANGE = 'AUTH_STATE_CHANGE';
+
 export const signIn = (email: string, password: string) => {
   return {
     payload: {email, password},
@@ -62,3 +66,11 @@ export const signOut = () => {
   };
 };
 
+export const subscribeOnAuthStateChange = () => ({
+  type: SUBSCRIBE_ON_AUTH_STATE_CHANGE,
+});
+
+export const authStateChange = (user: object): AnyAction => ({
+  type: AUTH_STATE_CHANGE,
+  user,
+});

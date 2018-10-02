@@ -4,6 +4,17 @@
   padding: 0 20px;
 }
 
+.container.center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.preloader_holder {
+  position: relative;
+}
+
 body {
   background-color: #fff;
 }

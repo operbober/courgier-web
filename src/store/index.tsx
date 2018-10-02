@@ -17,7 +17,8 @@ export const configureStore = (history: History): Store => {
   const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['auth']
+    whitelist: []
+    // whitelist: ['auth']
   };
 
   const rootEpic = combineEpics(
