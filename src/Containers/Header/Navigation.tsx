@@ -18,7 +18,7 @@ export default class Navigation extends React.Component {
                   className="btn"
                   to="/"
               >
-                  logged
+                  Devices
               </Link>
           </li>
         }

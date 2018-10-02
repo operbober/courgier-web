@@ -17,7 +17,7 @@
       "single",
       "jsx-double"
     ],
-    "no-console": true,
+    "no-console": false,
     "no-default-export": false
   }
 }

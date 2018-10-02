@@ -18,6 +18,18 @@
     align-items: center;
     justify-content: space-between;
     width: calc(100% - 110px);
+    padding: 33px 0 34px;
+}
+
+@media only screen and (max-width: 768px){
+
+    #header {
+        padding: 15px 0;
+    }
+
+    .nav-holder {
+        padding: 16px 0 17px;
+    }
 }
 
 a {

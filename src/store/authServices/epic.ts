@@ -1,7 +1,8 @@
 import { push } from 'connected-react-router';
 import { combineEpics, ofType } from 'redux-observable';
 import { of } from 'rxjs';
-import { catchError, ignoreElements, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap } from 'rxjs/operators';
+import * as devicesAction from '../devicesServices/action';
 import * as AuthActions from './action';
 
 const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
@@ -11,9 +12,9 @@ const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
 
     return api.signIn(email, password).pipe(
       switchMap((res: any) => of(AuthActions.signInSuccess({
-        email: res.user.email,
-        uid: res.user.uid,
-      }), push('./'))),
+          email: res.user.email,
+          uid: res.user.uid,
+        }), devicesAction.getItems(), push('./'))),
       catchError((error) => of(AuthActions.signInError(error.message))),
     );
   }),
@@ -21,7 +22,9 @@ const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
 
 const signOut = (action$: any, state$: any, {api}: any) => action$.pipe(
   ofType(AuthActions.SIGNOUT),
-  switchMap(() => api.logOut().pipe(ignoreElements())),
+  switchMap(() => api.signOut().pipe(
+    map(() => push('./signin')),
+  )),
 );
 
 const signUp = (action$: any, state$: any, {api}: any) => action$.pipe(
@@ -43,4 +46,11 @@ const signUp = (action$: any, state$: any, {api}: any) => action$.pipe(
   ),
 );
 
-export default combineEpics(signIn, signOut, signUp);
+const authStateChangeEpic = (action$: any, state$: any, {api}: any) => action$.pipe(
+  ofType(AuthActions.SUBSCRIBE_ON_AUTH_STATE_CHANGE),
+  switchMap(() => api.subscribeOnAuthStateChanged().pipe(
+    map((user: any) => AuthActions.authStateChange(user))
+  ))
+);
+
+export default combineEpics(signIn, signOut, signUp, authStateChangeEpic);

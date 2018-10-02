@@ -4,12 +4,25 @@
   padding: 0 20px;
 }
 
+.container.center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.preloader_holder {
+  position: relative;
+}
+
 body {
   background-color: #fff;
 }
 
 main {
-  padding: 100px 0 50px;
+  padding: 50px 0 50px;
+  position: relative;
+  min-height: calc(100vh - 190px);
 }
 
 @media only screen and (max-width: 768px){

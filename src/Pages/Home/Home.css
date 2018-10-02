@@ -40,6 +40,10 @@ p {
     box-shadow: 0 0 2px 0 rgba(0,0,0, .5);
 }
 
+.device {
+    margin-bottom: 15px;
+}
+
 .device-info {
     display: flex;
     justify-content: space-between;
@@ -56,7 +60,7 @@ p {
 
 .device-name {
     margin-bottom: 15px;
-    display: block;
+    display: inline-block;
 }
 
 .control-info {
@@ -65,21 +69,17 @@ p {
     align-items: flex-start;
     justify-content: flex-start;
     width: 20%;
+    min-width: 170px;
 }
 
-.circle {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 5px;
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.red {
-    background-color: #f00;
-}
-
-.green {
-    background-color: #0f0;
+.progress-circle {
+    width: 75px !important;
+    height: 75px !important;
 }
