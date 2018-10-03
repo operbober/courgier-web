@@ -1,5 +1,5 @@
 export interface DevicesState {
-  error: string | null,
-  items: {},
-  loading: boolean,
+    error: string | null,
+    items: {},
+    loading: boolean,
 }

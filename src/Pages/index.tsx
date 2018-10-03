@@ -4,8 +4,8 @@ import SignIn from './SignIn/SignIn';
 import SignUp from './SignUp/SignUp';
 
 export {
-  SignIn,
-  Home,
-  SignUp,
-  NotFound,
+    SignIn,
+    Home,
+    SignUp,
+    NotFound,
 };

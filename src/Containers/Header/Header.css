@@ -21,7 +21,7 @@
     padding: 33px 0 34px;
 }
 
-@media only screen and (max-width: 768px){
+@media only screen and (max-width: 768px) {
 
     #header {
         padding: 15px 0;
@@ -45,7 +45,7 @@ a:hover {
 }
 
 .nav,
-.control-panel{
+.control-panel {
     list-style-type: none;
     display: flex;
     align-items: center;

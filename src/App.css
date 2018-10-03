@@ -1,41 +1,41 @@
 .container {
-  max-width: 1020px;
-  margin: 0 auto;
-  padding: 0 20px;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .container.center {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 .preloader_holder {
-  position: relative;
+    position: relative;
 }
 
 body {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 main {
-  padding: 50px 0 50px;
-  position: relative;
-  min-height: calc(100vh - 190px);
+    padding: 50px 0 50px;
+    position: relative;
+    min-height: calc(100vh - 190px);
 }
 
-@media only screen and (max-width: 768px){
-  main {
-    padding: 40px 0 15px;
-  }
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 40px 0 15px;
+    }
 }
 
 img {
-  max-width: 100%;
-  vertical-align: top;
+    max-width: 100%;
+    vertical-align: top;
 }
 
 a {
-  outline: none;
+    outline: none;
 }

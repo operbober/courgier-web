@@ -1,39 +1,45 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { State } from 'src/store/interface/State';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+import {compose} from 'redux';
+import {State} from 'src/store/interface/State';
+import {Delay} from '../Components/Delay';
 import Loader from '../Components/Loader';
 import image from './Header/images/logo.png';
 
-class LoadScreen extends React.Component {
-
-  public props: {
-    firebaseInitialized: boolean,
-    user: object,
+interface Props {
     children: React.ReactNode
-  };
+    firebaseInitialized: boolean,
+}
 
-  public render() {
+class LoadScreen extends React.Component<Props> {
 
-    return (
-      this.props.firebaseInitialized
-        ? this.props.children
-        : <div className="container center" >
-          <h1 >Courgier</h1 >
-          <img src={image} alt="image description" />
-          <div className="preloader_holder" >
-            <Loader />
-          </div >
-        </div >
-    )
-  }
+    public render() {
+
+        if (this.props.firebaseInitialized) {
+            return this.props.children
+        }
+
+        return (
+            <Delay>
+                <div className="container center">
+                    <h1>Courgier</h1>
+                    <img src={image} alt="image description"/>
+                    <div className="preloader_holder">
+                        <Loader/>
+                    </div>
+                </div>
+            </Delay>
+        )
+
+    }
 }
 
 const mapStateToProps = ({auth}: State) => ({
-  firebaseInitialized: auth.firebaseInitialized,
-  user: auth.user,
+    firebaseInitialized: auth.firebaseInitialized,
 });
 
-// TODO think about how need better realised this code
-// @ts-ignore
-export default withRouter(connect(mapStateToProps)(LoadScreen));
+export default compose(
+    withRouter,
+    connect(mapStateToProps)
+)(LoadScreen);

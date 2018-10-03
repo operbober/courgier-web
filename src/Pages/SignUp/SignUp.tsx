@@ -1,44 +1,44 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-import { SignUpForm } from 'src/Components/SignUpForm';
-import { signUp } from 'src/store/authServices/index';
+import {connect} from 'react-redux';
+import {SignUpForm} from 'src/Components/SignUpForm';
+import {signUp} from 'src/store/authServices/';
 import './style.css';
 
 export class SignUp extends React.Component {
 
-  public state = {
-    email: '',
-    password: '',
-  };
+    public state = {
+        email: '',
+        password: '',
+    };
 
-  public props: {
-    signUp(email: string, password: string): void,
-  };
+    public props: {
+        signUp(email: string, password: string): void,
+    };
 
-  public handleFormFieldChange = (e: any) => {
-    this.setState({
-      [ e.target.name ]: e.target.value,
-    });
-  };
+    public handleFormFieldChange = (e: any) => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        });
+    };
 
-  public handleSignUp = (e: any) => {
-    e.preventDefault();
+    public handleSignUp = (e: any) => {
+        e.preventDefault();
 
-    this.props.signUp(this.state.email, this.state.password);
-  };
+        this.props.signUp(this.state.email, this.state.password);
+    };
 
-  public render() {
-    return (
-      <main>
-        <SignUpForm signUp={this.props.signUp}/>
-      </main>
-    );
-  }
+    public render() {
+        return (
+            <main>
+                <SignUpForm signUp={this.props.signUp}/>
+            </main>
+        );
+    }
 }
 
 export default connect(
-  ({}) => ({}),
-  {
-    signUp,
-  },
+    ({}) => ({}),
+    {
+        signUp,
+    },
 )(SignUp);
