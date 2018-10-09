@@ -17,7 +17,8 @@
       "single",
       "jsx-double"
     ],
-    "no-console": false,
-    "no-default-export": false
+    "no-console": true,
+    "no-default-export": false,
+    "object-literal-sort-keys": false
   }
 }
