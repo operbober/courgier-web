@@ -1,7 +1,7 @@
 import {Button, FormControl, TextField} from '@material-ui/core';
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {signIn} from 'src/store/auth/';
+import {signIn} from 'src/store/auth/action';
 import './style.css';
 
 export class SignIn extends React.Component {

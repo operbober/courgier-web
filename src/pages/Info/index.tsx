@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {SignUpForm} from 'src/components/SignUpForm';
-import {signUp} from 'src/store/auth';
+import {signUp} from 'src/store/auth/action';
 
 export class HomeWithoutSign extends React.Component {
 

@@ -1,0 +1,23 @@
+.device {
+    margin-bottom: 15px;
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.device-info .img-holder {
+}
+
+.device-name {
+    display: inline-block;
+}
+
+.control-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}

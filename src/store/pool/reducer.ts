@@ -1,6 +1,6 @@
 import {Reducer} from 'redux';
-import {PayloadAction} from '../../model/PayloadAction';
-import {PoolState} from '../../model/PoolState';
+import {PayloadAction} from '../../models/PayloadAction';
+import {PoolState} from '../../models/PoolState';
 import {GET_POOLS} from './action';
 
 export const poolsReducer: Reducer<PoolState, PayloadAction<{}>> = (state = {pools: []}, action) => {

@@ -6,7 +6,7 @@ import {Route, Switch} from 'react-router-dom';
 import {persistStore} from 'redux-persist';
 import {PersistGate} from 'redux-persist/integration/react'
 import LoadScreen from 'src/containers/LoadScreen';
-import {subscribeOnAuthStateChange} from 'src/store/auth';
+import {subscribeOnAuthStateChange} from 'src/store/auth/action';
 import './App.css';
 import {Header} from './containers';
 import * as Page from './pages';

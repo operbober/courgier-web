@@ -1,28 +1,29 @@
-import {Action, ActionCreator} from 'redux';
-import {PayloadActionCreator} from '../../model/PayloadActionCreator';
+import {ActionCreator, AnyAction} from 'redux';
+import {PayloadActionCreator} from '../../models/PayloadActionCreator';
+import {defineAsyncAction} from '../../util/defineAction';
 
-export const GET_DEVICES = {
-    FAILURE: 'GET_DEVICES_FAILURE',
-    REQUEST: 'GET_DEVICES_REQUEST',
-    SUCCESS: 'GET_DEVICES_SUCCESS'
-};
+export const GET_DEVICES = defineAsyncAction('GET_DEVICES');
 
-export const getDevices: ActionCreator<Action> = () => {
+export const getDevices: ActionCreator<AnyAction> = () => {
     return {
-        type: GET_DEVICES.REQUEST
+        type: GET_DEVICES.REQUEST,
+        loading: [GET_DEVICES.ACTION, true]
     }
 };
 
 export const getDevicesSuccess: PayloadActionCreator<{}> = (items: {}) => {
     return {
+        type: GET_DEVICES.SUCCESS,
         payload: items,
-        type: GET_DEVICES.SUCCESS
+        loading: [GET_DEVICES.ACTION, false]
+
     }
 };
 
 export const getDevicesFailure: PayloadActionCreator<string> = (error :string) => {
     return {
+        type: GET_DEVICES.FAILURE,
         payload: error,
-        type: GET_DEVICES.FAILURE
+        loading: [GET_DEVICES.ACTION, false]
     }
 };

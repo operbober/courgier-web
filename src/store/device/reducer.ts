@@ -1,36 +1,21 @@
 import {AnyAction} from 'redux';
-import {DevicesState} from 'src/model/DevicesState';
+import {DeviceState} from 'src/models/DeviceState';
 import {GET_DEVICES} from './action';
 
-const defaultState: DevicesState = {
-    error: null,
-    items: {},
-    loading: false
+const defaultState: DeviceState = {
+    ids: [],
+    items: {}
 };
 
-export const devicesReducer = (state: DevicesState = defaultState, action: AnyAction): DevicesState => {
+export const devicesReducer = (state: DeviceState = defaultState, action: AnyAction): DeviceState => {
     switch (action.type) {
 
-        case GET_DEVICES.REQUEST: {
-            return {
-                ...state,
-                loading: true,
-            };
-        }
-
         case GET_DEVICES.SUCCESS: {
+            const items = action.payload || {};
             return {
                 ...state,
-                items: action.payload || {},
-                loading: false,
-            };
-        }
-
-        case GET_DEVICES.FAILURE: {
-            return {
-                ...state,
-                error: action.payload,
-                loading: false,
+                ids: Object.keys(items),
+                items,
             };
         }
 

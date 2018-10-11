@@ -1,10 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {State} from 'src/model/State';
-import {signUp} from 'src/store/auth';
-import './Home.css';
-import HomeWithoutSign from './HomeWithoutSign';
-import HomeWithSign from './HomeWithSign';
+import {State} from 'src/models/State';
+import HomeWithSign from '../Devices';
+import HomeWithoutSign from '../Info';
+import {isAuthenticated} from '../../store/selector';
 
 class Home extends React.Component {
 
@@ -25,11 +24,8 @@ class Home extends React.Component {
     }
 }
 
-const mapStateToProps = ({auth}: State) => ({
-    loggedIn: !!auth.user,
+const mapStateToProps = (state: State) => ({
+    loggedIn: isAuthenticated(state)
 });
 
-export default connect(
-    mapStateToProps,
-    {signUp},
-)(Home);
+export default connect(mapStateToProps)(Home);

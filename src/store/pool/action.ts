@@ -1,14 +1,10 @@
 import {ActionCreator, AnyAction} from 'redux';
-import {GET_DEVICES} from '../device';
+import {defineAsyncAction} from '../../util/defineAction';
 
-export const GET_POOLS = {
-    REQUEST: 'GET_POOLS_REQUEST',
-    SUCCESS: 'GET_POOLS_SUCCESS',
-    FAILURE: 'GET_POOLS_FAILURE'
-};
+export const GET_POOLS = defineAsyncAction('GET_POOLS');
 
 export const getPools: ActionCreator<AnyAction> = (deviceId: string) => ({
-    type: GET_DEVICES.REQUEST,
+    type: GET_POOLS.REQUEST,
     payload: deviceId
 });
 

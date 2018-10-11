@@ -2,9 +2,11 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import {compose} from 'redux';
-import {State} from 'src/model/State';
+import {State} from 'src/models/State';
 import {Delay} from '../components/Delay';
-import {Spinner} from '../components/Spinner';
+import {Spinner} from '../components/Spinner/Spinner';
+import {APP} from '../store/auth/action';
+import {createLoadingSelector} from '../store/selector';
 import image from './Header/images/logo.png';
 
 interface Props {
@@ -34,8 +36,8 @@ class LoadScreen extends React.Component<Props> {
     }
 }
 
-const mapStateToProps = ({app}: State) => ({
-    loading: app.loading
+const mapStateToProps = (state: State) => ({
+    loading: createLoadingSelector(APP)(state)
 });
 
 export default compose(

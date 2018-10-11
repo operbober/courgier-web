@@ -2,7 +2,6 @@ import {push} from 'connected-react-router';
 import {combineEpics, ofType} from 'redux-observable';
 import {of} from 'rxjs';
 import {catchError, first, map, switchMap} from 'rxjs/operators';
-import {appStateChange} from '../app/action';
 import * as AuthActions from './action';
 
 const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
@@ -50,13 +49,10 @@ const authStateChangeEpic = (action$: any, state$: any, {api}: any) => action$.p
     ofType(AuthActions.SUBSCRIBE_ON_AUTH_STATE_CHANGE),
     switchMap(() => api.subscribeOnAuthStateChanged().pipe(
         first(),
-        switchMap(
-            (user: any) => of(
-                AuthActions.authStateChange(user),
-                appStateChange({loading: false})
-            )
+        map(
+            (user: any) => AuthActions.authStateChange(user),
         )
     ))
 );
 
-export default combineEpics(signIn, signOut, signUp, authStateChangeEpic);
+export const authEpic = combineEpics(signIn, signOut, signUp, authStateChangeEpic);

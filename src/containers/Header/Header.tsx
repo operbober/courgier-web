@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {NavLink} from 'react-router-dom';
-import {State} from 'src/model/State';
-import {signOut} from 'src/store/auth';
+import {Link} from 'react-router-dom';
+import {State} from 'src/models/State';
+import {signOut} from 'src/store/auth/action';
 import Control from './Control';
 import './Header.css';
 import logo from './images/logo.png';
@@ -20,14 +20,11 @@ class Header extends React.Component {
         return (
             <header id="header">
                 <div className="container">
-                    <strong className="logo">
-                        <NavLink
-                            exact={true}
-                            to="/"
-                        >
+                    <Link to="/">
+                        <div className="logo">
                             <img src={logo} alt="react-training"/>
-                        </NavLink>
-                    </strong>
+                        </div>
+                    </Link>
                     <div className="nav-holder">
                         <Navigation loggedIn={this.props.loggedIn}/>
                         <Control {...this.props}/>

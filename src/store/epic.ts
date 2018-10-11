@@ -1,8 +1,8 @@
 import {combineEpics} from 'redux-observable';
-import authEpic from './auth/epic';
-import devicesEpic from './device/epic';
+import {authEpic} from './auth/epic';
+import {deviceEpic} from './device/epic';
 
 export const rootEpic = combineEpics(
     authEpic,
-    devicesEpic,
+    deviceEpic,
 );

@@ -2,16 +2,16 @@ import {connectRouter} from 'connected-react-router';
 import {combineReducers} from 'redux';
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import {appReducer} from './app/reducer';
 import {authReducer} from './auth/reducer';
 import {devicesReducer} from './device/reducer';
 import {history} from './history';
+import {loadingReducer} from './loading/reducer';
 import {poolsReducer} from './pool/reducer';
 
 const reducer = combineReducers({
-    app: appReducer,
+    loading: loadingReducer,
     auth: authReducer,
-    devices: devicesReducer,
+    device: devicesReducer,
     pool: poolsReducer,
 });
 

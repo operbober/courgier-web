@@ -1,6 +1,17 @@
+.logo-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .logo {
     width: 90px;
     display: inline-block;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #header {

@@ -13,4 +13,4 @@ const getItems = (action$: any, state$: any, {api}: any) => action$.pipe(
     )),
 );
 
-export default combineEpics(getItems);
+export const deviceEpic = combineEpics(getItems);
