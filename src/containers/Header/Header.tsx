@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {State} from 'src/models/State';
 import {signOut} from 'src/store/auth/action';
+import {State} from 'src/store/State';
 import Control from './Control';
 import './Header.css';
 import logo from './images/logo.png';

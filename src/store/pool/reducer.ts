@@ -1,7 +1,7 @@
 import {Reducer} from 'redux';
 import {PayloadAction} from '../../models/PayloadAction';
-import {PoolState} from '../../models/PoolState';
 import {GET_POOLS} from './action';
+import {PoolState} from './PoolState';
 
 export const poolsReducer: Reducer<PoolState, PayloadAction<{}>> = (state = {pools: []}, action) => {
     if (action.type === GET_POOLS.SUCCESS) {

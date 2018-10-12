@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {State} from 'src/models/State';
 import {GET_DEVICES, getDevices} from 'src/store/device/action';
+import {State} from 'src/store/State';
 import {Spinner} from '../../components/Spinner/Spinner';
 import {Device} from '../../models/Device';
 import {createLoadingSelector, getAllDevices} from '../../store/selector';

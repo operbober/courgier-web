@@ -1,5 +1,5 @@
 import {createSelector} from 'reselect';
-import {DeviceState} from '../../models/DeviceState';
+import {DeviceState} from './DeviceState';
 
 export const getIds = (device: DeviceState) => {
     return device.ids;

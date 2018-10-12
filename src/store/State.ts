@@ -1,8 +1,8 @@
 import {RouterState} from 'connected-react-router';
-import {AuthState} from 'src/models/AuthState';
-import {DeviceState} from 'src/models/DeviceState';
-import {LoadingState} from './LoadingState';
-import {PoolState} from './PoolState';
+import {AuthState} from 'src/store/auth/AuthState';
+import {DeviceState} from 'src/store/device/DeviceState';
+import {LoadingState} from './loading/LoadingState';
+import {PoolState} from './pool/PoolState';
 
 export interface State {
     loading: LoadingState,

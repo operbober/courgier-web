@@ -1,4 +1,4 @@
-import {LoadingState} from '../../models/LoadingState';
+import {LoadingState} from './LoadingState';
 
 export const loadingReducer = (state: LoadingState = {}, {loading}: {loading: any}) => {
     if (loading) {

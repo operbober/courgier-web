@@ -1,5 +1,5 @@
 import {AnyAction} from 'redux';
-import {DeviceState} from 'src/models/DeviceState';
+import {DeviceState} from 'src/store/device/DeviceState';
 import {GET_DEVICES} from './action';
 
 const defaultState: DeviceState = {

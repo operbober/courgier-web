@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {State} from 'src/models/State';
+import {State} from 'src/store/State';
+import {isAuthenticated} from '../../store/selector';
 import HomeWithSign from '../Devices';
 import HomeWithoutSign from '../Info';
-import {isAuthenticated} from '../../store/selector';
 
 class Home extends React.Component {
 

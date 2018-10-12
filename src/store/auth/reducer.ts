@@ -1,6 +1,6 @@
 import {AnyAction} from 'redux';
-import {AuthState} from '../../models/AuthState';
 import {AUTH_STATE_CHANGE, SIGN_IN, SIGN_OUT, SIGN_UP} from './action';
+import {AuthState} from './AuthState';
 
 const defaultState: AuthState = {
     user: null,

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {State} from '../models/State';
+import {State} from '../store/State';
 
 class DeviceDetails extends React.Component {
     public render() {

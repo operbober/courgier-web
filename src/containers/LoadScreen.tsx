@@ -2,7 +2,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import {compose} from 'redux';
-import {State} from 'src/models/State';
+import {State} from 'src/store/State';
 import {Delay} from '../components/Delay';
 import {Spinner} from '../components/Spinner/Spinner';
 import {APP} from '../store/auth/action';

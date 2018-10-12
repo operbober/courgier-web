@@ -1,4 +1,4 @@
-import {Device} from './Device';
+import {Device} from '../../models/Device';
 
 export interface DeviceState {
     ids: string[],

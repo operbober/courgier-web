@@ -1,15 +1,15 @@
 import {createSelector} from 'reselect';
-import {AuthState} from '../models/AuthState';
-import {DeviceState} from '../models/DeviceState';
-import {LoadingState} from '../models/LoadingState';
-import {State} from '../models/State';
+import {AuthState} from './auth/AuthState';
 import * as AuthSelector from './auth/selecor'
+import {DeviceState} from './device/DeviceState';
 import * as DeviceSelector from './device/selector';
+import {LoadingState} from './loading/LoadingState';
 import {isLoading} from './loading/selector';
+import {State} from './State';
 
 
 export const getAuthState = (state: State): AuthState => state.auth;
-export const getLoadingState = (state: State):  LoadingState => state.loading;
+export const getLoadingState = (state: State): LoadingState => state.loading;
 export const getDeviceState = (state: State): DeviceState => state.device;
 
 export const isAuthenticated = createSelector(
