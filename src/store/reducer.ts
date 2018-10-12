@@ -1,14 +1,15 @@
 import {connectRouter} from 'connected-react-router';
-import {combineReducers} from 'redux';
+import {combineReducers, Reducer} from 'redux';
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import {State} from '../models/State';
 import {authReducer} from './auth/reducer';
 import {devicesReducer} from './device/reducer';
 import {history} from './history';
 import {loadingReducer} from './loading/reducer';
 import {poolsReducer} from './pool/reducer';
 
-const reducer = combineReducers({
+const reducer: Reducer<State> = combineReducers({
     loading: loadingReducer,
     auth: authReducer,
     device: devicesReducer,
