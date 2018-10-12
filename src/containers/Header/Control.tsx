@@ -5,7 +5,7 @@ import './Header.css';
 export default class Control extends React.Component {
 
     public props: {
-        loggedIn: boolean,
+        isAuthenticated: boolean,
         signOut: () => void,
     };
 
@@ -17,7 +17,7 @@ export default class Control extends React.Component {
 
         return (
             <ul className={'control-panel'}>
-                {!this.props.loggedIn
+                {!this.props.isAuthenticated
                     ? <React.Fragment>
                         <li>
                             <Link

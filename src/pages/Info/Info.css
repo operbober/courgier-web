@@ -1,3 +1,15 @@
+main {
+    padding: 50px 0 50px;
+    position: relative;
+    min-height: calc(100vh - 190px);
+}
+
+@media only screen and (max-width: 768px) {
+    main {
+        padding: 40px 0 15px;
+    }
+}
+
 p {
     margin-top: 0;
 }

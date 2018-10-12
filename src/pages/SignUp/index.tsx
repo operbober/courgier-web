@@ -2,9 +2,9 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {SignUpForm} from 'src/components/SignUpForm';
 import {signUp} from 'src/store/auth/action';
-import './style.css';
+import './SignUp.css';
 
-export class SignUp extends React.Component {
+export class SignUpComponent extends React.Component {
 
     public state = {
         email: '',
@@ -36,9 +36,9 @@ export class SignUp extends React.Component {
     }
 }
 
-export default connect(
-    ({}) => ({}),
+export const SignUp =  connect(
+    null,
     {
         signUp,
     },
-)(SignUp);
+)(SignUpComponent);

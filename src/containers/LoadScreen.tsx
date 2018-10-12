@@ -14,7 +14,7 @@ interface Props {
     loading: boolean,
 }
 
-class LoadScreen extends React.Component<Props> {
+class LoadScreenComponent extends React.Component<Props> {
 
     public render() {
 
@@ -40,7 +40,7 @@ const mapStateToProps = (state: State) => ({
     loading: createLoadingSelector(APP)(state)
 });
 
-export default compose(
+export const LoadScreen = compose(
     withRouter,
     connect(mapStateToProps)
-)(LoadScreen);
+)(LoadScreenComponent);

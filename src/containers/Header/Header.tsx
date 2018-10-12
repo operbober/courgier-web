@@ -3,30 +3,33 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {signOut} from 'src/store/auth/action';
 import {State} from 'src/store/State';
+import {Paths} from '../../router/Paths';
+import {isAuthenticated} from '../../store/selector';
 import Control from './Control';
 import './Header.css';
 import logo from './images/logo.png';
 import Navigation from './Navigation';
 
-class Header extends React.Component {
 
-    public props: {
-        loggedIn: boolean,
-        signOut: () => void,
-    };
+interface Props {
+    isAuthenticated: boolean,
+    signOut: () => void,
+}
+
+class Header extends React.Component<Props> {
 
     public render() {
 
         return (
             <header id="header">
                 <div className="container">
-                    <Link to="/">
+                    <Link to={Paths.HOME}>
                         <div className="logo">
                             <img src={logo} alt="react-training"/>
                         </div>
                     </Link>
                     <div className="nav-holder">
-                        <Navigation loggedIn={this.props.loggedIn}/>
+                        <Navigation isAuthenticated={this.props.isAuthenticated}/>
                         <Control {...this.props}/>
                     </div>
                 </div>
@@ -35,8 +38,8 @@ class Header extends React.Component {
     }
 }
 
-const mapStateToProps = ({auth}: State) => ({
-    loggedIn: !!auth.user,
+const mapStateToProps = (state: State) => ({
+    isAuthenticated: isAuthenticated(state),
 });
 
 export default connect(

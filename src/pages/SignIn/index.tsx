@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {signIn} from 'src/store/auth/action';
 import './style.css';
 
-export class SignIn extends React.Component {
+export class SignInComponent extends React.Component {
 
     public state = {
         email: '',
@@ -73,9 +73,9 @@ export class SignIn extends React.Component {
     }
 }
 
-export default connect(
-    ({}) => ({}),
+export const SignIn = connect(
+    null,
     {
         signIn,
     },
-)(SignIn);
+)(SignInComponent);

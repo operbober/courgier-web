@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import {GET_DEVICES, getDevices} from 'src/store/device/action';
+import {GET_DEVICES} from 'src/store/device/action';
 import {State} from 'src/store/State';
 import {Spinner} from '../../components/Spinner/Spinner';
 import {Device} from '../../models/Device';
@@ -11,30 +11,26 @@ interface Props {
     devices: Device[];
     loading: boolean,
     error?: string,
-
-    getDevices(): void
 }
 
-export class HomeWithSign extends React.Component<Props> {
-
-    public componentDidMount() {
-        this.props.getDevices()
-    }
+class DevicesComponent extends React.Component<Props> {
 
     public render() {
         const {devices, loading} = this.props;
 
         return (
-            <div className="container">
-                {loading
-                    ? <Spinner/>
-                    : (
-                        <React.Fragment>
-                            <DevicesList items={devices}/>
-                        </React.Fragment>
-                    )
-                }
-            </div>
+            <main>
+                <div className="container">
+                    {loading
+                        ? <Spinner/>
+                        : (
+                            <React.Fragment>
+                                <DevicesList items={devices}/>
+                            </React.Fragment>
+                        )
+                    }
+                </div>
+            </main>
         );
     }
 }
@@ -44,7 +40,4 @@ const mapStateToProps = (state: State) => ({
     loading: createLoadingSelector(GET_DEVICES.ACTION)(state),
 });
 
-export default connect(
-    mapStateToProps,
-    {getDevices}
-)(HomeWithSign);
+export const Devices = connect(mapStateToProps)(DevicesComponent);

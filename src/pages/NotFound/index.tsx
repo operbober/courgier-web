@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './NotFound.css';
 
-export default class NotFound extends React.Component {
+class NotFoundComponent extends React.Component {
     public render() {
         return (
             <div className="NotFound">
@@ -11,3 +11,5 @@ export default class NotFound extends React.Component {
         );
     }
 }
+
+export const NotFound = NotFoundComponent;
