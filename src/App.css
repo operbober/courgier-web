@@ -1,5 +1,6 @@
 .container {
     max-width: 1020px;
+    height: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -7,7 +8,7 @@
 .container.center {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
 }
 

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Route, Switch, withRouter} from 'react-router-dom';
 import {compose} from 'redux';
 import Header from '../containers/Header/Header';
-import {LoadScreen} from '../containers/LoadScreen';
+import {LoadScreen} from '../containers/LoadScreen/LoadScreen';
 import * as Page from '../pages';
 import {isAuthenticated} from '../store/selector';
 import {State} from '../store/State';
