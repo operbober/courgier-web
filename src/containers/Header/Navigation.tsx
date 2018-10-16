@@ -12,14 +12,6 @@ export default class Navigation extends React.Component<Props> {
     public render() {
         return (
             <ul className="nav">
-                <li>
-                    <Link
-                        className="btn"
-                        to={Paths.INFO}
-                    >
-                        Info
-                    </Link>
-                </li>
                 {
                     this.props.isAuthenticated &&
                     <li>
@@ -31,6 +23,14 @@ export default class Navigation extends React.Component<Props> {
                         </Link>
                     </li>
                 }
+                <li>
+                    <Link
+                        className="btn"
+                        to={Paths.INFO}
+                    >
+                        Info
+                    </Link>
+                </li>
             </ul>
         )
     }

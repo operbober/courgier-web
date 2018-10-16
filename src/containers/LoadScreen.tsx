@@ -6,6 +6,7 @@ import {State} from 'src/store/State';
 import {Delay} from '../components/Delay';
 import {Spinner} from '../components/Spinner/Spinner';
 import {APP} from '../store/auth/action';
+import {GET_DEVICES} from '../store/device/action';
 import {createLoadingSelector} from '../store/selector';
 import image from './Header/images/logo.png';
 
@@ -37,7 +38,7 @@ class LoadScreenComponent extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: State) => ({
-    loading: createLoadingSelector(APP)(state)
+    loading: createLoadingSelector([APP, GET_DEVICES])(state)
 });
 
 export const LoadScreen = compose(

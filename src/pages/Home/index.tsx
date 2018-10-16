@@ -7,14 +7,13 @@ import {Paths} from '../../router/Paths';
 import {getAllDevices, isAuthenticated} from '../../store/selector';
 
 interface Props {
-    loggedIn: boolean
+    isAuthenticated: boolean
     devices: Device[]
 }
 
 class HomeComponent extends React.Component<Props> {
-
     public render() {
-        if (this.props.loggedIn && this.props.devices.length > 0) {
+        if (this.props.isAuthenticated && this.props.devices.length > 0) {
             return <Redirect to={Paths.DEVICES}/>
         }
         return <Redirect to={Paths.INFO}/>
@@ -22,7 +21,7 @@ class HomeComponent extends React.Component<Props> {
 }
 
 const mapStateToProps = (state: State) => ({
-    loggedIn: isAuthenticated(state),
+    isAuthenticated: isAuthenticated(state),
     devices: getAllDevices(state)
 });
 

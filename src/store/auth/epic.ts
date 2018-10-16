@@ -11,10 +11,10 @@ const signIn = (action$: any, state$: any, {api}: any) => action$.pipe(
         const {email, password} = action.payload;
 
         return api.signIn(email, password).pipe(
-            switchMap((res: any) => of(AuthActions.signInSuccess({
+            switchMap((res: any) => of(getDevices(), AuthActions.signInSuccess({
                 email: res.user.email,
                 uid: res.user.uid,
-            }), push('./'), getDevices())),
+            }), push('./'),)),
             catchError((error) => of(AuthActions.signInError(error.message))),
         );
     }),
@@ -53,7 +53,7 @@ const authStateChangeEpic = (action$: any, state$: any, {api}: any) => action$.p
         switchMap(
             (user: any) => {
                 if (user) {
-                    return of(AuthActions.authStateChange(user), getDevices())
+                    return of(getDevices(), AuthActions.authStateChange(user))
                 }
                 return of(AuthActions.authStateChange(user))
             }

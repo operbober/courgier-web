@@ -10,10 +10,10 @@ import {poolsReducer} from './pool/reducer';
 import {State} from './State';
 
 const reducer = combineReducers<State>({
-    loading: loadingReducer,
     auth: authReducer,
     device: devicesReducer,
     pool: poolsReducer,
+    loading: loadingReducer,
 });
 
 const connectedReducer = connectRouter(history)(reducer);

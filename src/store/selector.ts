@@ -22,7 +22,7 @@ export const getUser = createSelector(
     AuthSelector.getUser
 );
 
-export const createLoadingSelector = (action: string) => {
+export const createLoadingSelector = (action: string | string[]) => {
     return createSelector(
         getLoadingState,
         isLoading(action)
