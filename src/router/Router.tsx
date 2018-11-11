@@ -7,7 +7,7 @@ import {LoadScreen} from '../containers/LoadScreen/LoadScreen';
 import * as Page from '../pages';
 import {isAuthenticated} from '../store/selector';
 import {State} from '../store/State';
-import {Paths} from './Paths';
+import {PATHS} from './Paths';
 
 
 interface Props {
@@ -20,11 +20,12 @@ class RouterComponent extends React.Component<Props> {
             <LoadScreen>
                 <Header/>
                 <Switch>
-                    <Route exact={true} path={Paths.HOME} component={Page.Home}/>
-                    <Route path={Paths.SIGN_IN} component={Page.SignIn}/>
-                    <Route path={Paths.SIGN_UP} component={Page.SignUp}/>
-                    <Route path={Paths.INFO} component={Page.Info}/>
-                    <Route path={Paths.DEVICES} component={Page.Devices}/>
+                    <Route exact={true} path={PATHS.HOME} component={Page.Home}/>
+                    <Route path={PATHS.SIGN_IN} component={Page.SignIn}/>
+                    <Route path={PATHS.SIGN_UP} component={Page.SignUp}/>
+                    <Route path={PATHS.INFO} component={Page.Info}/>
+                    <Route exact={true} path={PATHS.DEVICES} component={Page.Devices}/>
+                    <Route path={`${PATHS.DEVICE_DETAILS}/:id`} component={Page.Details}/>
                     <Route path="*" component={Page.NotFound}/>
                 </Switch>
             </LoadScreen>

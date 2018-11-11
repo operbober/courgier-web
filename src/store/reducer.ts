@@ -6,12 +6,14 @@ import {authReducer} from './auth/reducer';
 import {devicesReducer} from './device/reducer';
 import {history} from './history';
 import {loadingReducer} from './loading/reducer';
+import {metricReducer} from './metric/reducer';
 import {poolsReducer} from './pool/reducer';
 import {State} from './State';
 
 const reducer = combineReducers<State>({
     auth: authReducer,
     device: devicesReducer,
+    metric: metricReducer,
     pool: poolsReducer,
     loading: loadingReducer,
 });

@@ -23,7 +23,7 @@ export const signInSuccess: PayloadActionCreator<{}> = (user: object) => {
 
 export const signInError: PayloadActionCreator<{}> = (error: string) => {
     return {
-        type: SIGN_IN.ERROR,
+        type: SIGN_IN.FAILURE,
         payload: {error},
         loading: [SIGN_IN.ACTION, false]
     };
@@ -50,7 +50,7 @@ export const signUpSuccess: PayloadActionCreator<{}> = (user: object) => {
 
 export const signUpError = (error: object) => {
     return {
-        type: SIGN_UP.ERROR,
+        type: SIGN_UP.FAILURE,
         payload: error,
         loading: [SIGN_UP.ACTION, false]
     };

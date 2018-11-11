@@ -32,6 +32,13 @@ const firebaseApi = {
         return from(firebase.database().ref(path).once('value'));
     },
 
+    getMetrics: (deviceId: string) => {
+        const currentUser = getCurrentUser();
+        const uid = currentUser.uid;
+        const path = `${uid}/metrics/${deviceId}/`;
+        return from(firebase.database().ref(path).orderByChild('timestamp').once('value'));
+    },
+
     getPools: (deviceId: string) => {
         const currentUser = getCurrentUser();
         const uid = currentUser.uid;

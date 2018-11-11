@@ -5,12 +5,15 @@ import {DeviceState} from './device/DeviceState';
 import * as DeviceSelector from './device/selector';
 import {LoadingState} from './loading/LoadingState';
 import {isLoading} from './loading/selector';
+import {MetricState} from './metric/MetricState';
+import * as MetricSelector from './metric/selector'
 import {State} from './State';
 
 
 export const getAuthState = (state: State): AuthState => state.auth;
 export const getLoadingState = (state: State): LoadingState => state.loading;
 export const getDeviceState = (state: State): DeviceState => state.device;
+export const getMetricState = (state: State): MetricState => state.metric;
 
 export const isAuthenticated = createSelector(
     getAuthState,
@@ -32,6 +35,11 @@ export const createLoadingSelector = (action: string | string[]) => {
 export const getAllDevices = createSelector(
     getDeviceState,
     DeviceSelector.getAllItems
+);
+
+export const getAllMetrics = createSelector(
+    getMetricState,
+    MetricSelector.getAllItems
 );
 
 

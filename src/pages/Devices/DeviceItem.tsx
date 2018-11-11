@@ -2,6 +2,7 @@ import * as moment from 'moment';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import {Device} from '../../models/Device';
+import {PATHS} from '../../router/Paths';
 import './Device.css'
 
 const devicesIcons = {
@@ -12,7 +13,7 @@ const devicesIcons = {
     windows: <span className="icon-windows"/>,
 };
 
-export class DeviceDescription extends React.Component {
+export class DeviceItem extends React.Component {
 
     public props: {
         device: Device
@@ -20,7 +21,7 @@ export class DeviceDescription extends React.Component {
 
     public render() {
 
-        const {name, type, description, lastPoolTime} = this.props.device;
+        const {id, name, type, description, lastPoolTime} = this.props.device;
         const deviceIcon = devicesIcons[type.toLowerCase()];
 
         return (
@@ -29,10 +30,10 @@ export class DeviceDescription extends React.Component {
                     <div className="img-holder" title={type}>
                         {deviceIcon}
                     </div>
-                    <Link to={`device/${name}`}>
+                    <Link to={`${PATHS.DEVICE_DETAILS}/${id}`}>
                         <strong className="device-name">{name}</strong>
                     </Link>
-                    <p>{description}</p>
+                    <div>{description}</div>
                     <div className="control-info">
                         <span>
                             <strong>last active: </strong>

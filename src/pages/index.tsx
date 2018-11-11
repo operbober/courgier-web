@@ -1,3 +1,4 @@
+import {Details} from './Details';
 import {Devices} from './Devices';
 import {Home} from './Home/';
 import {Info} from './Info';
@@ -11,5 +12,6 @@ export {
     Info,
     Home,
     Devices,
+    Details,
     NotFound,
 };

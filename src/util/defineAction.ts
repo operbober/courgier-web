@@ -13,6 +13,5 @@ export const defineAction = (type: string, subactions: string[] = []) => {
     return action;
 };
 
-export const ASYNC_ACTION_TYPES = ['REQUEST', 'SUCCESS', 'FAILURE'];
-
-export const defineAsyncAction = (type: string) => defineAction(type, ASYNC_ACTION_TYPES);
+type AsyncActionKeys = 'ACTION' | 'REQUEST' | 'SUCCESS' | 'FAILURE';
+export const defineAsyncAction = (type: string) : {[key in AsyncActionKeys]: string} => defineAction(type, ['REQUEST', 'SUCCESS', 'FAILURE']);

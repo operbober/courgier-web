@@ -12,9 +12,11 @@ export const devicesReducer = (state: DeviceState = defaultState, action: AnyAct
 
         case GET_DEVICES.SUCCESS: {
             const items = action.payload || {};
+            const ids = Object.keys(items);
+            ids.forEach(id => { items[id].id = id });
             return {
                 ...state,
-                ids: Object.keys(items),
+                ids,
                 items,
             };
         }

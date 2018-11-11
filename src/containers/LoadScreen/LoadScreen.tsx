@@ -36,6 +36,7 @@ class LoadScreenComponent extends React.PureComponent<Props> {
                                     loop: true
                                 })
                             }} alt="image description"/>
+                            Loading...
                         </div>
                     </div>
                 </Delay>
@@ -47,7 +48,7 @@ class LoadScreenComponent extends React.PureComponent<Props> {
 }
 
 const mapStateToProps = (state: State) => ({
-    loading: createLoadingSelector([APP, GET_DEVICES])(state)
+    loading: createLoadingSelector([APP, GET_DEVICES.ACTION])(state)
 });
 
 export const LoadScreen = compose(

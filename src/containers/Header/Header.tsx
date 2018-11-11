@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {signOut} from 'src/store/auth/action';
 import {State} from 'src/store/State';
-import {Paths} from '../../router/Paths';
+import {PATHS} from '../../router/Paths';
 import {isAuthenticated} from '../../store/selector';
 import Control from './Control';
 import './Header.css';
@@ -23,7 +23,7 @@ class Header extends React.Component<Props> {
         return (
             <header id="header">
                 <div className="container">
-                    <Link to={Paths.HOME}>
+                    <Link to={PATHS.HOME}>
                         <div className="logo">
                             <img src={logo} alt="react-training"/>
                         </div>

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 import {State} from 'src/store/State';
 import {Device} from '../../models/Device';
-import {Paths} from '../../router/Paths';
+import {PATHS} from '../../router/Paths';
 import {getAllDevices, isAuthenticated} from '../../store/selector';
 
 interface Props {
@@ -14,9 +14,9 @@ interface Props {
 class HomeComponent extends React.Component<Props> {
     public render() {
         if (this.props.isAuthenticated && this.props.devices.length > 0) {
-            return <Redirect to={Paths.DEVICES}/>
+            return <Redirect to={PATHS.DEVICES}/>
         }
-        return <Redirect to={Paths.INFO}/>
+        return <Redirect to={PATHS.INFO}/>
     }
 }
 

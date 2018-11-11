@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import {Paths} from '../../router/Paths';
+import {PATHS} from '../../router/Paths';
 import './Header.css';
 
 interface Props {
@@ -17,7 +17,7 @@ export default class Navigation extends React.Component<Props> {
                     <li>
                         <Link
                             className="btn"
-                            to={Paths.DEVICES}
+                            to={PATHS.DEVICES}
                         >
                             Devices
                         </Link>
@@ -26,7 +26,7 @@ export default class Navigation extends React.Component<Props> {
                 <li>
                     <Link
                         className="btn"
-                        to={Paths.INFO}
+                        to={PATHS.INFO}
                     >
                         Info
                     </Link>
