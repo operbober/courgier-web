@@ -7,7 +7,7 @@ import './Device.css'
 
 const devicesIcons = {
     android: <span className="icon-android"/>,
-    apple: <span className="icon-apple"/>,
+    ios: <span className="icon-apple"/>,
     linux: <span className="icon-linux"/>,
     other: <span className="icon-other"/>,
     windows: <span className="icon-windows"/>,

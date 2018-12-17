@@ -2,6 +2,7 @@ import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import * as React from 'react';
 import {Metric} from '../../models/Metric';
+import {MetricDetails} from '../Metric';
 
 
 interface Props {
@@ -9,17 +10,24 @@ interface Props {
 }
 
 export class MetricItem extends React.Component<Props> {
-    public render() {
+
+
+	constructor(props: Readonly<Props>) {
+		super(props);
+		this.state = {
+
+		}
+	}
+
+	public render() {
+    	const {item} = this.props;
         return (
             <ExpansionPanel>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography>{this.props.item.label}</Typography>
+                    <Typography>{item.label}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-                    <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                        sit amet blandit leo lobortis eget.
-                    </Typography>
+					<MetricDetails metric={item}/>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );
