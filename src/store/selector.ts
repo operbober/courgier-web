@@ -6,7 +6,7 @@ import * as DeviceSelector from './device/selector';
 import {LoadingState} from './loading/LoadingState';
 import {isLoading} from './loading/selector';
 import {MetricState} from './metric/MetricState';
-import * as MetricSelector from './metric/selector'
+import * as MetricSelector from './metric/selector';
 import {State} from './State';
 
 
@@ -40,6 +40,11 @@ export const getAllDevices = createSelector(
 export const getAllMetrics = createSelector(
     getMetricState,
     MetricSelector.getAllItems
+);
+
+export const getMetricsByDevice = (deviceId: string) => createSelector(
+    getMetricState,
+    MetricSelector.getItemsByDeviceId(deviceId),
 );
 
 
