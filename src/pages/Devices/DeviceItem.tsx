@@ -37,7 +37,7 @@ export class DeviceItem extends React.Component {
                     <div className="control-info">
                         <span>
                             <strong>last active: </strong>
-                            {moment(lastPoolTime).format('HH:mm:ss DD.mm.YYYY')}
+                            {moment(lastPoolTime).fromNow()}
                         </span>
                         {/*TODO: think about this attribute*/}
                         {/*<span>is online:*/}
