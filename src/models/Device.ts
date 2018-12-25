@@ -4,5 +4,5 @@ export interface Device {
     type: string;
     version?: string;
     description?: string;
-    lastPoolTime: number;
+    lastPollTime: number;
 }

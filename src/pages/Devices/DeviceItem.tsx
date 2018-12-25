@@ -21,7 +21,7 @@ export class DeviceItem extends React.Component {
 
     public render() {
 
-        const {id, name, type, description, lastPoolTime} = this.props.device;
+        const {id, name, type, description, lastPollTime} = this.props.device;
         const deviceIcon = devicesIcons[type.toLowerCase()];
 
         return (
@@ -37,7 +37,7 @@ export class DeviceItem extends React.Component {
                     <div className="control-info">
                         <span>
                             <strong>last active: </strong>
-                            {moment(lastPoolTime).fromNow()}
+                            {moment(lastPollTime).fromNow()}
                         </span>
                         {/*TODO: think about this attribute*/}
                         {/*<span>is online:*/}

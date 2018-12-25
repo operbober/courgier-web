@@ -10,28 +10,28 @@ const defaultState: DeviceState = {
             type: 'ios',
             name: 'iPhone SE',
             description: '',
-            lastPoolTime: moment().subtract(10, 'minute').valueOf()
+            lastPollTime: moment().subtract(10, 'minute').valueOf()
         },
         '2': {
             id: '2',
             type: 'windows',
             name: 'Home PC',
             description: '',
-            lastPoolTime: moment().subtract(1, 'day').valueOf()
+            lastPollTime: moment().subtract(1, 'day').valueOf()
         },
         '3': {
             id: '3',
             type: 'windows',
             name: 'Work PC',
             description: '',
-            lastPoolTime: moment().subtract(5, 'day').valueOf()
+            lastPollTime: moment().subtract(5, 'day').valueOf()
         },
         '4': {
             id: '4',
             type: 'android',
             name: 'LG Q6',
             description: '',
-            lastPoolTime: moment().subtract(15, 'minute').valueOf()
+            lastPollTime: moment().subtract(15, 'minute').valueOf()
         }
     }
 };
