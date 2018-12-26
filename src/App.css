@@ -26,5 +26,10 @@ img {
 }
 
 a {
-    outline: none;
+    transition: color ease-in-out 0.3s;
+    color: #777;
+}
+
+a:hover {
+    color: #aaa;
 }

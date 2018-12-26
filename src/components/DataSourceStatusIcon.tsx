@@ -3,8 +3,8 @@ import * as React from 'react';
 
 
 const statusIcon = {
-	'online': <FiberManualRecord titleAccess="online" fontSize="large" style={{color: '#b4ee7d'}}/>,
-	'offline': <FiberManualRecord titleAccess="offline" fontSize="large" style={{color: '#bf0000'}}/>,
+	'online': <FiberManualRecord titleAccess="online" fontSize="large" style={{color: '#2bb36f'}}/>,
+	'offline': <FiberManualRecord titleAccess="offline" fontSize="large" style={{color: '#fd5c52'}}/>,
 };
 
 interface Props {
