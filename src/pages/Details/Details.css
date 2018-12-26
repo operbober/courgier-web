@@ -1,3 +1,30 @@
+main {
+	margin: 0 50px 0 50px;
+}
+
+.DetailsHeader {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+
+.DeviceInfo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100px;
+}
+
+.DeviceInfoContent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 30px;
+	line-height: 1;
+
+}
+
 .DateFilter {
 	display: flex;
 	justify-content: center;

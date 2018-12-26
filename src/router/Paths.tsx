@@ -3,6 +3,6 @@ export enum PATHS {
     SIGN_IN = '/signin',
     SIGN_UP = '/signup',
     INFO = '/info',
-    DEVICES = '/devices',
-    DEVICE_DETAILS = '/device',
+    DEVICES = '/data-sources',
+    DEVICE_DETAILS = '/data-source',
 }

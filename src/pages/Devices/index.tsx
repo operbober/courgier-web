@@ -9,42 +9,6 @@ import {Device} from '../../models/Device';
 import {createLoadingSelector, getAllDevices} from '../../store/selector';
 import TextField from '@material-ui/core/TextField';
 
-const generateRandomNumber = (min:any, max: any) => min - 0.5 + Math.random() * (max - min + 1);
-const data = [
-        {
-            id: 1,
-            type: 'apple',
-            name: 'iPhone SE',
-            status: 1,
-            description: 'Friend\'s mobile phone',
-            lastPollTime: moment.utc().days(generateRandomNumber(1,2)).hours(generateRandomNumber(1,24)).format(''),
-        },
-        {
-            id: 2,
-            type: 'windows',
-            name: 'Home PC',
-            status: 0,
-            description: 'My personal computer at home',
-            lastPollTime: moment.utc().days(generateRandomNumber(1,4)).hours(generateRandomNumber(1,24)).format(''),
-        },
-        {
-            id: 3,
-            type: 'windows',
-            name: 'Work PC',
-            status: 0,
-            description: 'My personal computer at work',
-            lastPollTime: moment.utc().days(generateRandomNumber(1,2)).hours(generateRandomNumber(1,24)).format(''),
-        },
-        {
-            id: 4,
-            type: 'android',
-            name: 'LG Q6',
-            status: 1,
-            description: 'My mobile phone',
-            lastPollTime: moment.utc().days(1).hours(generateRandomNumber(1,24)).format(''),
-        }
-    ];
-
 interface Props {
     devices: Device[];
     loading: boolean,
@@ -57,7 +21,6 @@ class DevicesComponent extends React.Component<Props> {
 	constructor(props: Readonly<Props>) {
 		super(props);
 		this.state = {
-			devices: data,
 			loading: false
 		}
 	}
@@ -69,7 +32,8 @@ class DevicesComponent extends React.Component<Props> {
 	};
 
 	public render() {
-        const {devices, loading} = this.state as any;
+		const { devices } = this.props;
+        const { loading } = this.state as any;
 
         return (
             <main>
