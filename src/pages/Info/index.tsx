@@ -19,10 +19,10 @@ class InfoComponent extends React.Component<Props> {
             <main>
                 <div className="container flex-container">
                     <div className="content-holder">
-                        <h1>Ололо</h1>
-                        <p>олололололо олололололо олололололо олололололо олололололо олололололо олололололо
-                            олололололо
-                            олололололо олололололо </p>
+                        <h1>Courgier</h1>
+                        <h2>Monitor anything</h2>
+                        <p>Solutions for any kind of IT infrastructure, services, applications, resources</p>
+                        <p>Download one of our default agents or create your own using our open API</p>
                         <div className="button-holder">
                             <a className="btn-download" href="#">1</a>
                             <a className="btn-download" href="#">2</a>
