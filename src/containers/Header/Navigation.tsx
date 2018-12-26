@@ -19,7 +19,7 @@ export default class Navigation extends React.Component<Props> {
                             className="btn"
                             to={PATHS.DEVICES}
                         >
-                            Devices
+                            Data Sources
                         </Link>
                     </li>
                 }

@@ -1,17 +1,10 @@
 import * as moment from 'moment';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
+import {DataSourceTypeIcon} from '../../components/DataSourceTypeIcon';
 import {Device} from '../../models/Device';
 import {PATHS} from '../../router/Paths';
 import './Device.css'
-
-const devicesIcons = {
-    android: <span className="icon-android"/>,
-    ios: <span className="icon-apple"/>,
-    linux: <span className="icon-linux"/>,
-    other: <span className="icon-other"/>,
-    windows: <span className="icon-windows"/>,
-};
 
 export class DeviceItem extends React.Component {
 
@@ -22,7 +15,7 @@ export class DeviceItem extends React.Component {
     public render() {
 
         const {id, name, type, description, lastPollTime} = this.props.device;
-        const deviceIcon = devicesIcons[type.toLowerCase()];
+        const deviceIcon = <DataSourceTypeIcon type={type.toLowerCase()}/>;
 
         return (
             <div className="content-holder device">

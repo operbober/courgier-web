@@ -7,6 +7,7 @@ const defaultState: DeviceState = {
     items: {
         '1': {
             id: '1',
+			status: 'online',
             type: 'ios',
             name: 'iPhone SE',
             description: '',
@@ -14,6 +15,7 @@ const defaultState: DeviceState = {
         },
         '2': {
             id: '2',
+			status: 'offline',
             type: 'windows',
             name: 'Home PC',
             description: '',
@@ -21,6 +23,7 @@ const defaultState: DeviceState = {
         },
         '3': {
             id: '3',
+			status: 'offline',
             type: 'windows',
             name: 'Work PC',
             description: '',
@@ -28,6 +31,7 @@ const defaultState: DeviceState = {
         },
         '4': {
             id: '4',
+			status: 'online',
             type: 'android',
             name: 'LG Q6',
             description: '',

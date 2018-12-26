@@ -9,3 +9,4 @@ export const getAllItems = createSelector(
     [getIds, getItems],
     (ids, items) => ids.map(id => items[id])
 );
+export const getItemById = (id: string) => (device: DeviceState) => getItems(device)[id];

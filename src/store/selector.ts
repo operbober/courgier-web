@@ -37,6 +37,11 @@ export const getAllDevices = createSelector(
     DeviceSelector.getAllItems
 );
 
+export const getDeviceById = (id: string) => createSelector(
+	getDeviceState,
+	DeviceSelector.getItemById(id),
+);
+
 export const getAllMetrics = createSelector(
     getMetricState,
     MetricSelector.getAllItems
