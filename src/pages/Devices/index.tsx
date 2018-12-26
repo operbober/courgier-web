@@ -1,4 +1,3 @@
-import * as moment from 'moment'
 import * as React from 'react';
 import {connect} from 'react-redux';
 import {GET_DEVICES} from 'src/store/device/action';
@@ -21,19 +20,20 @@ class DevicesComponent extends React.Component<Props> {
 	constructor(props: Readonly<Props>) {
 		super(props);
 		this.state = {
-			loading: false
+			loading: false,
+            items: this.props.devices
 		}
 	}
 
 	public onChange = (event: any) => {
+	    const { devices } = this.props;
 		const isPropMatch = (prop: any) => prop.toLowerCase().includes(event.target.value.toLowerCase());
-		const updatedItems = data.filter((item:any) => isPropMatch(item.name) || isPropMatch(item.type));
-		this.setState({devices: updatedItems})
+		const updatedItems = devices.filter((item:any) => isPropMatch(item.name) || isPropMatch(item.type));
+		this.setState({items: updatedItems})
 	};
 
 	public render() {
-		const { devices } = this.props;
-        const { loading } = this.state as any;
+        const { loading, items } = this.state as any;
 
         return (
             <main>
@@ -50,7 +50,7 @@ class DevicesComponent extends React.Component<Props> {
 									margin="normal"
 									onChange={this.onChange}
 								/>
-                                <SortableTable items={devices}/>
+                                <SortableTable items={items}/>
                             </React.Fragment>
                         )
                     }
