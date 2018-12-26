@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Metric} from '../../models/Metric';
-import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import * as moment from 'moment';
 
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const batteryLevel = [
-	{date: moment().subtract(10, 'minute').valueOf(), value: 91},
+	{date: moment().subtract(12, 'minute').valueOf(), value: 91},
 	{date: moment().subtract(1, 'hour').valueOf(), value: 82},
 	{date: moment().subtract(2, 'hour').valueOf(), value: 71},
 	{date: moment().subtract(3, 'hour').valueOf(), value: 55},
@@ -38,7 +38,7 @@ const batteryLevel = [
 ];
 
 const isBatteryCharging = [
-	{date: moment().subtract(10, 'minute').valueOf(), value: 1},
+	{date: moment().subtract(12, 'minute').valueOf(), value: 1},
 	{date: moment().subtract(1, 'hour').valueOf(), value: 1},
 	{date: moment().subtract(2, 'hour').valueOf(), value: 1},
 	{date: moment().subtract(3, 'hour').valueOf(), value: 1},
@@ -66,7 +66,9 @@ const isBatteryCharging = [
 	{date: moment().subtract(25, 'hour').valueOf(), value: 0},
 ];
 
-const timeTickFormatter = (tick: any) => moment(tick).format('dd:HH:mm');
+const dateTickFormatter = (tick: any) => moment(tick).format('HH:mm Do');
+
+const tooltipLabelFormatter = (tick: any) => moment(tick).format('HH:mm Do');
 
 const booleanTickFormatter = (tick: any) => tick ? 'true' : 'false';
 
@@ -76,32 +78,32 @@ export class MetricDetails extends React.Component<Props> {
 
 		if (this.props.metric.name === 'isBatteryCharging') {
 			return (
-				<div>
-					<LineChart width={730} height={250} data={isBatteryCharging}
+				<ResponsiveContainer width="100%" height={250}>
+					<LineChart data={isBatteryCharging}
 							   margin={{top: 5, right: 30, left: 20, bottom: 5}}>
 						<CartesianGrid strokeDasharray="3 3"/>
-						<XAxis dataKey="date" type="number" scale="time" tickFormatter={timeTickFormatter} domain={['dataMax', 'dataMin']}/>
+						<XAxis dataKey="date" type="number" scale="time" tickFormatter={dateTickFormatter} domain={['dataMax', 'dataMin']}/>
 						<YAxis type={'category'} tickFormatter={booleanTickFormatter} padding={{top: 25, bottom: 25}}/>
-						<Tooltip/>
+						<Tooltip formatter={booleanTickFormatter} labelFormatter={tooltipLabelFormatter}/>
 						<Legend/>
-						<Line type="monotone" dataKey="value" stroke="#8884d8"/>
+						<Line type="monotone" dataKey="value" stroke="#8884d8" name="Is Battery Charging"/>
 					</LineChart>
-				</div>
+				</ResponsiveContainer>
 			)
 		}
 
 		return (
-			<div>
-				<LineChart width={730} height={250} data={batteryLevel}
+			<ResponsiveContainer width="100%" height={250}>
+				<LineChart data={batteryLevel}
 						   margin={{top: 5, right: 30, left: 20, bottom: 5}}>
 					<CartesianGrid strokeDasharray="3 3"/>
-					<XAxis dataKey="date" type="number" scale="time" tickFormatter={timeTickFormatter} domain={['dataMax', 'dataMin']}/>
+					<XAxis dataKey="date" type="number" scale="time" tickFormatter={dateTickFormatter} domain={['dataMax', 'dataMin']}/>
 					<YAxis padding={{top: 25, bottom: 0}}/>
-					<Tooltip/>
+					<Tooltip labelFormatter={tooltipLabelFormatter}/>
 					<Legend/>
-					<Line type="monotone" dataKey="value" stroke="#8884d8"/>
+					<Line type="monotone" dataKey="value" stroke="#8884d8" name="Battery Level"/>
 				</LineChart>
-			</div>
+			</ResponsiveContainer>
 		);
 	}
 }
