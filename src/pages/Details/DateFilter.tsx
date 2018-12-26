@@ -1,5 +1,8 @@
 import {Checkbox, TextField} from '@material-ui/core';
 import * as React from 'react';
+import * as moment from 'moment';
+
+const DATE_PICKER_FORMAT = 'YYYY-MM-DDTHH:mm';
 
 export class DateFilter extends React.Component<{ disabled: boolean, onChange: () => void }> {
 	public render() {
@@ -9,7 +12,7 @@ export class DateFilter extends React.Component<{ disabled: boolean, onChange: (
 					id="datetime-local"
 					label="From"
 					type="datetime-local"
-					defaultValue="2017-05-24T10:30"
+					defaultValue={moment().subtract(24, 'hour').format(DATE_PICKER_FORMAT)}
 					InputLabelProps={{
 						shrink: true,
 					}}
@@ -20,7 +23,7 @@ export class DateFilter extends React.Component<{ disabled: boolean, onChange: (
 					id="datetime-local"
 					label="To"
 					type="datetime-local"
-					defaultValue="2017-05-24T10:30"
+					defaultValue={moment().format(DATE_PICKER_FORMAT)}
 					InputLabelProps={{
 						shrink: true,
 					}}

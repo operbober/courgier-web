@@ -34,7 +34,6 @@ const batteryLevel = [
 	{date: moment().subtract(22, 'hour').valueOf(), value: 55},
 	{date: moment().subtract(23, 'hour').valueOf(), value: 61},
 	{date: moment().subtract(24, 'hour').valueOf(), value: 65},
-	{date: moment().subtract(25, 'hour').valueOf(), value: 71},
 ];
 
 const isBatteryCharging = [
@@ -63,7 +62,6 @@ const isBatteryCharging = [
 	{date: moment().subtract(22, 'hour').valueOf(), value: 0},
 	{date: moment().subtract(23, 'hour').valueOf(), value: 0},
 	{date: moment().subtract(24, 'hour').valueOf(), value: 0},
-	{date: moment().subtract(25, 'hour').valueOf(), value: 0},
 ];
 
 const dateTickFormatter = (tick: any) => moment(tick).format('HH:mm Do');

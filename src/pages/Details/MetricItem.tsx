@@ -2,7 +2,8 @@ import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, Typography
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import * as React from 'react';
 import {Metric} from '../../models/Metric';
-import {MetricDetails} from '../Metric';
+import {MetricDetails} from './MetricDetails';
+import {Threshold} from './Threshold';
 
 
 interface Props {
@@ -27,7 +28,10 @@ export class MetricItem extends React.Component<Props> {
                     <Typography>{item.label}</Typography>
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails>
-					<MetricDetails metric={item}/>
+                    <div className="MetricItemContent">
+                        <MetricDetails metric={item}/>
+                        <Threshold/>
+                    </div>
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         );

@@ -37,3 +37,10 @@ main {
 	flex-direction: column;
 	margin-left: 25px;
 }
+
+.MetricItemContent {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
