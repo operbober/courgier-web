@@ -5,6 +5,7 @@ import {Info} from './Info';
 import {NotFound} from './NotFound';
 import {SignIn} from './SignIn';
 import {SignUp} from './SignUp';
+import {Comparison} from './Comparison';
 
 export {
     SignIn,
@@ -14,4 +15,5 @@ export {
     Devices,
     Details,
     NotFound,
+    Comparison,
 };
