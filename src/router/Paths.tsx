@@ -5,4 +5,6 @@ export enum PATHS {
     INFO = '/info',
     DEVICES = '/data-sources',
     DEVICE_DETAILS = '/data-source',
+	COMPARISON = '/comparison',
+	REPORTS = '/reports'
 }

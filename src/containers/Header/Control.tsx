@@ -7,6 +7,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import Badge from '@material-ui/core/Badge';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { NotificationIcon } from '../../components/NotificationIcon';
+import * as moment from 'moment';
+
 import './Header.css';
 
 export default class Control extends React.Component {
@@ -29,7 +31,7 @@ export default class Control extends React.Component {
     public handleMenuOpen = (name: any) => (event:any) => {
         this.setState({ [name]: event.currentTarget });
     };
-    
+
     public handleLogOut = () => {
         this.props.signOut();
     };
@@ -46,36 +48,36 @@ export default class Control extends React.Component {
                 open={isNotificationOpen}
                 onClose={this.handleMenuClose('notificationAnchor')}
             >
-                <MenuItem onClick={this.handleMenuClose('notificationAnchor')}>
-                    <p className="notification-item">
-                        <span className="notification-item__info">
-                            <span className="notification-item__icon"><NotificationIcon type="warn" /></span>
-                            <b>iPhone SE </b> Battery Level &lt; 30
-                            <span className="notification-item__time">22:15 Wed</span>
-                        </span>
-                        <a className="notification-item__link" href="#">Clear</a>
-                    </p>
-                </MenuItem>
-                <MenuItem onClick={this.handleMenuClose('notificationAnchor')}>
-                    <p className="notification-item">
+				<MenuItem onClick={this.handleMenuClose('notificationAnchor')}>
+					<p className="notification-item">
                         <span className="notification-item__info">
                             <span className="notification-item__icon"><NotificationIcon type="info" /></span>
-                            <b>iPhone SE </b> Is Battery Charging = true
-                            <span className="notification-item__time">01:30 Th</span>
+                            <span className="notification-item__time">{moment().subtract(6, 'hour').format('HH:mm Do')}</span>
+							<b>iPhone SE </b> Is Battery Charging = true
                         </span>
-                        <a className="notification-item__link" href="#">Clear</a>
-                    </p>
-                </MenuItem>
+						<a className="notification-item__link" href="#">Clear</a>
+					</p>
+				</MenuItem>
                 <MenuItem>
                     <p className="notification-item">
                         <span className="notification-item__info">
                             <span className="notification-item__icon"><NotificationIcon type="error" /></span>
+							<span className="notification-item__time">{moment().subtract(6, 'hour').format('HH:mm Do')}</span>
                             <b>iPhone SE </b> Battery Level &lt; 10
-                            <span className="notification-item__time">01:15 Th</span>
                         </span>
                         <a className="notification-item__link" href="#">Clear</a>
                     </p>
                 </MenuItem>
+				<MenuItem onClick={this.handleMenuClose('notificationAnchor')}>
+					<p className="notification-item">
+                        <span className="notification-item__info">
+                            <span className="notification-item__icon"><NotificationIcon type="warn" /></span>
+                            <span className="notification-item__time">{moment().subtract(14, 'hour').format('HH:mm Do')}</span>
+							<b>iPhone SE </b> Battery Level &lt; 30
+                        </span>
+						<a className="notification-item__link" href="#">Clear</a>
+					</p>
+				</MenuItem>
             </Menu>
         );
         const renderMenu = (
