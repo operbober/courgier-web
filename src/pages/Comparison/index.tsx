@@ -25,8 +25,10 @@ class ComparisonComponent extends React.Component<Props> {
 	constructor(props: Readonly<Props>) {
 		super(props);
 		this.state = {
-            device: '',
-            metric: '',
+            device1: '',
+            device2: '',
+            metric1: '',
+            metric2: '',
 		}
 	}
 
@@ -35,45 +37,7 @@ class ComparisonComponent extends React.Component<Props> {
     };
 
 	public render() {
-        const { loading, device, metric } = this.state as any;
-        const renderPair = (
-            <Paper>
-                <FormControl>
-                    <InputLabel htmlFor="device-native-simple">Device</InputLabel>
-                    <Select
-                        native={true}
-                        value={device}
-                        onChange={this.handleChange('device')}
-                        inputProps={{
-                            name: 'device',
-                            id: 'device-native-simple',
-                        }}
-                    >
-                        <option value="" />
-                        <option value={1}>iPhone SE</option>
-                        <option value={2}>Home PC</option>
-                        <option value={3}>Work PC</option>
-                        <option value={4}>LG Q6</option>
-                    </Select>
-                </FormControl>
-                <FormControl>
-                    <InputLabel htmlFor="metric-native-simple">Metric</InputLabel>
-                    <Select
-                        native={true}
-                        value={metric}
-                        onChange={this.handleChange('metric')}
-                        inputProps={{
-                            name: 'metric',
-                            id: 'metric-native-simple',
-                        }}
-                    >
-                        <option value="" />
-                        <option value={10}>Battery</option>
-                        <option value={20}>Free memory</option>
-                    </Select>
-                </FormControl>
-            </Paper>
-        );
+        const { loading, device1, device2, metric1 ,metric2 } = this.state as any;
 
         const renderPlaceholder = (
             <Paper>
@@ -94,8 +58,81 @@ class ComparisonComponent extends React.Component<Props> {
                                     Select devices and metrics to compare:
                                 </div>
                                 <div className="comparison-wrapper">
-                                    {renderPair}
-                                    {renderPair}
+
+									<Paper>
+										<FormControl>
+											<InputLabel htmlFor="device-native-simple">Device</InputLabel>
+											<Select
+												native={true}
+												value={device1}
+												onChange={this.handleChange('device1')}
+												inputProps={{
+													name: 'device1',
+													id: 'device-native-simple1',
+												}}
+											>
+												<option value="" />
+												<option value={1}>iPhone SE</option>
+												<option value={2}>Home PC</option>
+												<option value={3}>Work PC</option>
+												<option value={4}>LG Q6</option>
+											</Select>
+										</FormControl>
+										<FormControl>
+											<InputLabel htmlFor="metric-native-simple">Metric</InputLabel>
+											<Select
+												native={true}
+												value={metric1}
+												onChange={this.handleChange('metric1')}
+												inputProps={{
+													name: 'metric1',
+													id: 'metric-native-simple1',
+												}}
+											>
+												<option value="" />
+												<option value={10}>Battery Level</option>
+												<option value={20}>Free memory</option>
+											</Select>
+										</FormControl>
+									</Paper>
+
+									<Paper>
+										<FormControl>
+											<InputLabel htmlFor="device-native-simple">Device</InputLabel>
+											<Select
+												native={true}
+												value={device2}
+												onChange={this.handleChange('device2')}
+												inputProps={{
+													name: 'device2',
+													id: 'device-native-simple2',
+												}}
+											>
+												<option value="" />
+												<option value={1}>iPhone SE</option>
+												<option value={2}>Home PC</option>
+												<option value={3}>Work PC</option>
+												<option value={4}>LG Q6</option>
+											</Select>
+										</FormControl>
+										<FormControl>
+											<InputLabel htmlFor="metric-native-simple">Metric</InputLabel>
+											<Select
+												native={true}
+												value={metric2}
+												onChange={this.handleChange('metric2')}
+												inputProps={{
+													name: 'metric2',
+													id: 'metric-native-simple2',
+												}}
+											>
+												<option value="" />
+												<option value={10}>Battery Level</option>
+												<option value={20}>Free memory</option>
+											</Select>
+										</FormControl>
+									</Paper>
+
                                     {renderPlaceholder}
                                 </div>
                                 <div className="comparison-wrapper__chart">
