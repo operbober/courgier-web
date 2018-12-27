@@ -13,15 +13,27 @@ export default class Navigation extends React.Component<Props> {
         return (
             <ul className="nav">
                 {
+
                     this.props.isAuthenticated &&
-                    <li>
-                        <Link
-                            className="btn"
-                            to={PATHS.DEVICES}
-                        >
-                            Data Sources
-                        </Link>
-                    </li>
+                        <React.Fragment>
+                            <li>
+                                <Link
+                                    className="btn"
+                                    to={PATHS.DEVICES}
+                                >
+                                    Data Sources
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    className="btn"
+                                    to={PATHS.COMPARISON}
+                                >
+                                    Comparison
+                                </Link>
+                            </li>
+                    </React.Fragment>
+
                 }
                 <li>
                     <Link
