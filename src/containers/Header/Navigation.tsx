@@ -4,48 +4,56 @@ import {PATHS} from '../../router/Paths';
 import './Header.css';
 
 interface Props {
-    isAuthenticated: boolean
+	isAuthenticated: boolean
 }
 
 export default class Navigation extends React.Component<Props> {
 
-    public render() {
-        return (
-            <ul className="nav">
-                {
+	public render() {
+		return (
+			<ul className="nav">
+				{
 
-                    this.props.isAuthenticated &&
-                        <React.Fragment>
-                            <li>
-                                <Link
-                                    className="btn"
-                                    to={PATHS.DEVICES}
-                                >
-                                    Data Sources
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    className="btn"
-                                    to={PATHS.COMPARISON}
-                                >
-                                    Comparison
-                                </Link>
-                            </li>
-                    </React.Fragment>
+					this.props.isAuthenticated &&
+					<React.Fragment>
+						<li>
+							<Link
+								className="btn"
+								to={PATHS.DEVICES}
+							>
+								Data Sources
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="btn"
+								to={PATHS.COMPARISON}
+							>
+								Comparison
+							</Link>
+						</li>
+						<li>
+							<Link
+								className="btn"
+								to={PATHS.REPORTS}
+							>
+								Reports
+							</Link>
+						</li>
+					</React.Fragment>
 
-                }
-                <li>
-                    <Link
-                        className="btn"
-                        to={PATHS.INFO}
-                    >
-                        Info
-                    </Link>
-                </li>
-            </ul>
-        )
-    }
+				}
+				<li>
+					<Link
+						className="btn"
+						to={PATHS.INFO}
+					>
+						Info
+					</Link>
+				</li>
+			</ul>
+		)
+	}
 
 }
 

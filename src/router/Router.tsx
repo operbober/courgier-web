@@ -27,6 +27,7 @@ class RouterComponent extends React.Component<Props> {
                     <Route exact={true} path={PATHS.DEVICES} component={Page.Devices}/>
                     <Route path={`${PATHS.DEVICE_DETAILS}/:id`} component={Page.Details}/>
                     <Route exact={true} path={PATHS.COMPARISON} component={Page.Comparison} />
+                    <Route exact={true} path={PATHS.REPORTS} component={Page.Reports} />
                     <Route path="*" component={Page.NotFound}/>
                 </Switch>
             </LoadScreen>

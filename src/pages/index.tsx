@@ -6,6 +6,7 @@ import {NotFound} from './NotFound';
 import {SignIn} from './SignIn';
 import {SignUp} from './SignUp';
 import {Comparison} from './Comparison';
+import {Reports} from './Reports';
 
 export {
     SignIn,
@@ -16,4 +17,5 @@ export {
     Details,
     NotFound,
     Comparison,
+	Reports,
 };
