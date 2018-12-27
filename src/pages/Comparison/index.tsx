@@ -54,7 +54,7 @@ class ComparisonComponent extends React.Component<Props> {
                         ? <Spinner/>
                         : (
                             <div>
-                                <div className="comparison-wrapper__title">
+                                <div className="comparison-wrapper__title" style={{textAlign: 'center'}}>
                                     Select devices and metrics to compare:
                                 </div>
                                 <div className="comparison-wrapper">
