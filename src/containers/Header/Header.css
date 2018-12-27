@@ -69,3 +69,37 @@ header a {
     margin: 0 0 0 -22px;
     color: #a5a5a5;
 }
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+}
+
+.notification-item__info {
+    margin-right: 15px;
+    min-width: 300px;
+    max-width: 400px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.notification-item__info b {
+    margin: 0 5px;
+    color: #777777;
+}
+
+.notification-item__icon {
+    margin-right: 10px;
+}
+
+.notification-item__link {
+    font-size: 12px;
+}
+
+.notification-item__time {
+    margin: 0 10px;
+    color: #777777;
+    font-size: 14px;
+}
