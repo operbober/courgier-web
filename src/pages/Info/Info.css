@@ -16,6 +16,8 @@ p {
 
 .flex-container {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -38,6 +40,18 @@ p {
 .button-holder {
     display: flex;
     justify-content: center;
+    margin-top: 40px;
+}
+
+.container-holder {
+    margin-bottom: 5px;
+}
+
+.container-holder__subtitle {
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-top: -15px;
+    color: #777777;
 }
 
 .btn-download {
@@ -50,4 +64,9 @@ p {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 2px 0 rgba(0, 0, 0, .5);
+}
+
+.btn-download--api {
+    text-decoration: none;
+    font-size: 20px;
 }
